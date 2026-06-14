@@ -1,0 +1,167 @@
+body {
+    direction: rtl;
+    margin: 0;
+    padding: 30px 15px;
+    background: #f4f6f9;
+    font-family: Tahoma, Arial, sans-serif;
+    color: #2c3e50;
+}
+
+form {
+    width: 80%;
+    max-width: 650px;
+    margin: auto;
+    background: #ffffff;
+    padding: 35px;
+    border-radius: 16px;
+    border-top: 5px solid #003b6f;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    box-sizing: border-box;
+}
+
+/* HEADER */
+.form-header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.logo-box {
+    margin-bottom: 15px;
+}
+
+.logo-box img {
+    max-width: 120px;
+    max-height: 120px;
+    object-fit: contain;
+}
+
+.header-text h2 {
+    margin: 0;
+    color: #003b6f;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.header-text p {
+    margin: 8px 0 0;
+    color: #6b7280;
+    font-size: 14px;
+}
+
+/* LABEL */
+label {
+    display: block;
+    margin-top: 18px;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #34495e;
+}
+
+/* INPUTS (FIXED CROPPING ISSUE) */
+input[type="text"],
+input[type="tel"],
+input[type="number"],
+select {
+    width: 100%;
+    height: 48px;
+    padding: 0 12px;
+    border: 1px solid #d6dce5;
+    border-radius: 10px;
+    background: #ffffff;
+    color: #2c3e50;
+    font-size: 14px;
+    font-family: Tahoma, Arial, sans-serif;
+    box-sizing: border-box;
+    line-height: 48px;
+    transition: all .25s ease;
+}
+
+/* TEXTAREA */
+textarea {
+    width: 100%;
+    min-height: 100px;
+    padding: 12px;
+    border: 1px solid #d6dce5;
+    border-radius: 10px;
+    background: #ffffff;
+    color: #2c3e50;
+    font-size: 14px;
+    font-family: Tahoma, Arial, sans-serif;
+    box-sizing: border-box;
+    resize: vertical;
+}
+
+/* SELECT FIX (IMPORTANT FOR DESKTOP) */
+select {
+    direction: rtl;
+    text-align: right;
+    cursor: pointer;
+    line-height: normal;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+/* OPTIONS FIX */
+select option {
+    color: #000;
+    background: #fff;
+    font-size: 14px;
+}
+
+/* FOCUS */
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: #0056a6;
+    box-shadow: 0 0 0 3px rgba(0, 86, 166, 0.15);
+}
+
+/* BUTTON */
+button,
+input[type="submit"] {
+    width: 100%;
+    margin-top: 25px;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    background: #003b6f;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+button:hover,
+input[type="submit"]:hover {
+    background: #0056a6;
+}
+
+button:active,
+input[type="submit"]:active {
+    transform: scale(0.98);
+}
+
+/* PLACEHOLDER */
+::placeholder {
+    color: #95a5a6;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+
+    form {
+        padding: 25px 20px;
+    }
+
+    .header-text h2 {
+        font-size: 20px;
+    }
+}
