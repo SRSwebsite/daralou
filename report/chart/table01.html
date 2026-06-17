@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>اماکن ورزشی طرف قرارداد سال 1405</title>
+<style>
+/* ==========================
+   RESET
+========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+    --bg:#edf1f5;
+    --white:#ffffff;
+    --shadow-dark:#d1d5db;
+    --shadow-light:#ffffff;
+    --orange:#ff7a00;
+    --orange-light:#ff9d3f;
+    --text:#444;
+}
+
+/* ==========================
+   BODY
+========================== */
+
+body{
+    font-family:Tahoma,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    padding:25px;
+    line-height:1.7;
+}
+
+/* ==========================
+   CONTAINER
+========================== */
+
+.container{
+    max-width:1400px;
+    margin:auto;
+}
+
+/* ==========================
+   HEADER
+========================== */
+
+.header-card{
+    background:linear-gradient(
+        135deg,
+        var(--orange),
+        var(--orange-light)
+    );
+
+    color:white;
+    text-align:center;
+
+    padding:30px;
+
+    border-radius:30px;
+
+    margin-bottom:25px;
+
+    box-shadow:
+        10px 10px 25px rgba(0,0,0,.12),
+        -5px -5px 15px rgba(255,255,255,.25);
+}
+
+.header-card h1{
+    font-size:32px;
+    margin-bottom:8px;
+}
+
+.header-card p{
+    opacity:.9;
+}
+
+/* ==========================
+   TOOLBAR
+========================== */
+
+.toolbar{
+    display:flex;
+    gap:15px;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:25px;
+}
+
+#searchBox{
+    flex:1;
+
+    border:none;
+    outline:none;
+
+    padding:15px 20px;
+
+    font-size:15px;
+
+    border-radius:20px;
+
+    background:var(--bg);
+
+    box-shadow:
+        inset 6px 6px 12px #d9dde2,
+        inset -6px -6px 12px #ffffff;
+}
+
+.counter{
+    white-space:nowrap;
+
+    padding:15px 20px;
+
+    border-radius:20px;
+
+    background:var(--bg);
+
+    color:var(--orange);
+
+    font-weight:bold;
+
+    box-shadow:
+        -5px -5px 10px #ffffff,
+         5px  5px 10px #d1d5db;
+}
+
+/* ==========================
+   TABLE CARD
+========================== */
+
+.table-wrapper{
+
+    background:var(--bg);
+
+    padding:25px;
+
+    border-radius:30px;
+
+    overflow-x:auto;
+
+    box-shadow:
+        -10px -10px 25px #ffffff,
+         10px 10px 25px #d1d5db;
+}
+
+/* ==========================
+   TABLE
+========================== */
+
+table{
+    width:100%;
+    min-width:800px;
+    border-collapse:separate;
+    border-spacing:0 10px;
+}
+
+thead th{
+
+    background:linear-gradient(
+        135deg,
+        var(--orange),
+        var(--orange-light)
+    );
+
+    color:white;
+
+    padding:16px 12px;
+
+    font-size:14px;
+
+    font-weight:bold;
+
+    border:none;
+}
+
+thead th:first-child{
+    border-radius:15px 0 0 15px;
+}
+
+thead th:last-child{
+    border-radius:0 15px 15px 0;
+}
+
+/* ==========================
+   TABLE BODY
+========================== */
+
+tbody tr{
+    transition:.25s ease;
+}
+
+tbody td{
+
+    background:var(--bg);
+
+    text-align:center;
+
+    padding:15px 12px;
+
+    font-size:14px;
+
+    border:none;
+
+    box-shadow:
+        -4px -4px 8px #ffffff,
+         4px  4px 8px #d1d5db;
+}
+
+tbody td:first-child{
+    border-radius:15px 0 0 15px;
+    color:var(--orange);
+    font-weight:bold;
+}
+
+tbody td:last-child{
+    border-radius:0 15px 15px 0;
+}
+
+tbody tr:hover{
+    transform:translateY(-3px);
+}
+
+tbody tr:hover td{
+
+    background:#fff8f2;
+
+    box-shadow:
+        0 0 0 2px rgba(255,122,0,.15),
+        0 8px 20px rgba(255,122,0,.12);
+}
+
+/* ==========================
+   SCROLLBAR
+========================== */
+
+::-webkit-scrollbar{
+    height:10px;
+    width:10px;
+}
+
+::-webkit-scrollbar-thumb{
+    background:var(--orange);
+    border-radius:20px;
+}
+
+::-webkit-scrollbar-track{
+    background:#e7eaee;
+}
+
+/* ==========================
+   MOBILE
+========================== */
+
+@media (max-width:900px){
+
+    body{
+        padding:12px;
+    }
+
+    .header-card{
+        padding:22px;
+        border-radius:22px;
+    }
+
+    .header-card h1{
+        font-size:22px;
+    }
+
+    .toolbar{
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+    #searchBox{
+        width:100%;
+    }
+
+    .counter{
+        text-align:center;
+    }
+
+    .table-wrapper{
+        padding:15px;
+    }
+
+    table{
+        min-width:700px;
+    }
+
+    th,
+    td{
+        font-size:13px;
+        padding:12px 8px;
+    }
+}
+
+/* ==========================
+   SMALL MOBILE
+========================== */
+
+@media (max-width:480px){
+
+    .header-card h1{
+        font-size:18px;
+    }
+
+    .header-card p{
+        font-size:13px;
+    }
+
+    th,
+    td{
+        font-size:12px;
+        padding:10px 6px;
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header-card">
+        <h1>🏆 اماکن ورزشی طرف قرارداد</h1>
+        <p>سال ۱۴۰۵</p>
+    </div>
+
+    <div class="toolbar">
+        <input type="text"
+               id="searchBox"
+               placeholder="جستجوی نام باشگاه یا شهر...">
+
+        <div class="counter">
+            تعداد مراکز: 33
+        </div>
+    </div>
+
+
+
+    <div class="table-wrapper">
+
+
+<table>
+    <thead>
+        <tr>
+            <th>ردیف</th>
+            <th>نام باشگاه / استخر</th>
+            <th>شهر</th>
+            <th>تاریخ عقد قرارداد</th>
+            <th>تاریخ پایان قرارداد</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr><td>1</td><td>باشگاه بدنسازی نیو استایل</td><td>رابر</td><td>1403/01/01</td><td>1405/01/31</td></tr>
+        <tr><td>2</td><td>باشگاه بدنسازی تن آرا</td><td>رابر</td><td>1403/01/01</td><td>1405/01/31</td></tr>
+        <tr><td>3</td><td>باشگاه ووشو ذوالفقار</td><td>رابر</td><td>1403/01/01</td><td>1405/01/31</td></tr>
+        <tr><td>4</td><td>سالن ورزشی استقلال</td><td>رابر</td><td>1403/01/01</td><td>1405/01/31</td></tr>
+
+        <tr><td>5</td><td>استخر شنای شهدای بافت</td><td>بافت</td><td>1403/01/01</td><td>1405/01/31</td></tr>
+        <tr><td>6</td><td>باشگاه بدنسازی فیت پلاس</td><td>بافت</td><td>1403/01/01</td><td>1405/01/31</td></tr>
+        <tr><td>7</td><td>سالن ورزشی نبی اعظم</td><td>بافت</td><td>1403/01/01</td><td>1405/01/31</td></tr>
+
+        <tr><td>8</td><td>باشگاه شطرنج ذهن برتر</td><td>رابر</td><td>1403/01/01</td><td>1405/01/31</td></tr>
+        <tr><td>9</td><td>باشگاه شطرنج ذهن برتر</td><td>بافت</td><td>1403/01/01</td><td>1405/01/31</td></tr>
+
+        <tr><td>10</td><td>استخر شنای امید</td><td>بردسیر</td><td>1403/01/01</td><td>1405/01/31</td></tr>
+        <tr><td>11</td><td>باشگاه بدنسازی حامد اسفندیارپور</td><td>بردسیر</td><td>1403/01/01</td><td>1405/01/31</td></tr>
+        <tr><td>12</td><td>باشگاه ووشو قرایی</td><td>بردسیر</td><td>1403/01/01</td><td>1405/01/31</td></tr>
+
+        <tr><td>13</td><td>سالن ورزشی گلزار</td><td>گلزار</td><td>1403/01/01</td><td>1405/01/31</td></tr>
+        <tr><td>14</td><td>باشگاه ورزشی پوریا ولی راین</td><td>راین</td><td>1403/01/01</td><td>1405/01/31</td></tr>
+
+        <tr><td>15</td><td>استخر چشمه</td><td>کرمان</td><td>1403/01/01</td><td>1405/01/31</td></tr>
+        <tr><td>16</td><td>استخر اشکان</td><td>کرمان</td><td>1403/01/01</td><td>1405/01/31</td></tr>
+        <tr><td>17</td><td>استخر پردیس پزشکان</td><td>کرمان</td><td>1403/01/01</td><td>1405/01/31</td></tr>
+
+        <tr><td>18</td><td>اسپرلوس</td><td>کرمان</td><td>1403/01/01</td><td>1405/01/31</td></tr>
+        <tr><td>19</td><td>فست فیت</td><td>کرمان</td><td>1403/01/01</td><td>1405/01/31</td></tr>
+        <tr><td>20</td><td>روپاس</td><td>کرمان</td><td>1403/01/01</td><td>1405/01/31</td></tr>
+        <tr><td>21</td><td>اسپیناس</td><td>کرمان</td><td>1403/01/01</td><td>1405/01/31</td></tr>
+        <tr><td>22</td><td>ملک محمدی</td><td>کرمان</td><td>1403/01/01</td><td>1405/01/31</td></tr>
+        <tr><td>23</td><td>سمیثم نصیری</td><td>کرمان</td><td>1403/01/01</td><td>1405/01/31</td></tr>
+        <tr><td>24</td><td>آلپ</td><td>کرمان</td><td>1403/01/01</td><td>1405/01/31</td></tr>
+        <tr><td>25</td><td>انرژی</td><td>کرمان</td><td>1403/01/01</td><td>1405/01/31</td></tr>
+        <tr><td>26</td><td>تست</td><td>کرمان</td><td>1403/01/01</td><td>1405/01/31</td></tr>
+        <tr><td>27</td><td>تناوران</td><td>کرمان</td><td>1403/01/01</td><td>1405/01/31</td></tr>
+        <tr><td>28</td><td>آرارات</td><td>کرمان</td><td>1403/01/01</td><td>1405/01/31</td></tr>
+        <tr><td>29</td><td>مرکز آرامش و تندرستی هیمن</td><td>کرمان</td><td>1403/01/01</td><td>1405/01/31</td></tr>
+        <tr><td>30</td><td>پالادیوم</td><td>کرمان</td><td>1403/01/01</td><td>1405/01/31</td></tr>
+        <tr><td>31</td><td>هیرو</td><td>کرمان</td><td>1403/01/01</td><td>1405/01/31</td></tr>
+        <tr><td>32</td><td>تدین</td><td>کرمان</td><td>1403/01/01</td><td>1405/01/31</td></tr>
+        <tr><td>33</td><td>ژاو</td><td>کرمان</td><td>1403/01/01</td><td>1405/01/31</td></tr>
+    </tbody>
+</table>
+ </div>
+
+</div>
+<script>
+document.getElementById("searchBox").addEventListener("keyup", function() {
+
+    let value = this.value.toLowerCase();
+    let rows = document.querySelectorAll("tbody tr");
+
+    rows.forEach(row => {
+        row.style.display =
+            row.innerText.toLowerCase().includes(value)
+            ? ""
+            : "none";
+    });
+
+});
+</script>
+</body>
+</html>
