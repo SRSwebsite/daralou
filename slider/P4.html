@@ -1,0 +1,560 @@
+<!doctype html>
+<html lang="fa">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>پروپوزال WebGL — صفحه اول</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Vazirmatn:wght@300;500;700&display=swap" rel="stylesheet">
+
+  <style>
+<style>
+:root{
+  --max-width:1200px;
+  --gap:28px;
+
+  --paper:#f7ede4;
+  --surface:#fdf6f0;
+
+  --accent:#f97316;
+  --accent-light:#fb923c;
+
+  --text:#2c2119;
+  --muted:#9a7d67;
+
+  --shadow-dark:rgba(205,145,90,.18);
+  --shadow-light:rgba(255,255,255,.95);
+}
+
+*,*::before,*::after{
+  box-sizing:border-box;
+}
+
+html,body{
+  height:100%;
+}
+
+body{
+  margin:40px;
+  font-family:"Vazirmatn",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+  background:var(--paper);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.7;
+  -webkit-text-size-adjust:100%;
+    direction: rtl;
+  text-align: right;
+}
+
+.page{
+  max-width:var(--max-width);
+  margin:0 auto;
+  background:var(--surface);
+  padding:48px;
+
+  display:grid;
+  grid-template-columns:1fr 420px;
+  gap:var(--gap);
+
+  border-radius:28px;
+
+  box-shadow:
+      16px 16px 32px var(--shadow-dark),
+     -16px -16px 32px var(--shadow-light);
+
+  align-items:start;
+}
+
+.image-block{
+  position:relative;
+  min-height:420px;
+  overflow:hidden;
+  border-radius:24px;
+
+  background:var(--surface);
+
+  box-shadow:
+      inset 6px 6px 12px rgba(205,145,90,.12),
+      inset -6px -6px 12px rgba(255,255,255,.9);
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.image-block img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transform:scale(1.03);
+}
+
+.image-accent{
+  position:absolute;
+  right:-40px;
+  bottom:-40px;
+  width:180px;
+  height:180px;
+  border-radius:28px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(249,115,22,.08),
+      rgba(251,146,60,.35)
+    );
+
+  transform:rotate(-12deg);
+
+  box-shadow:
+      10px 10px 24px rgba(249,115,22,.18);
+
+  pointer-events:none;
+}
+
+.right{
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+}
+
+.kicker{
+  font-family:"Playfair Display",serif;
+  font-size:14px;
+  letter-spacing:2px;
+  color:var(--accent);
+  text-transform:uppercase;
+}
+
+.heading{
+  font-family:"Playfair Display",serif;
+  font-size:36px;
+  line-height:1;
+  margin:6px 0;
+  font-weight:700;
+  letter-spacing:-0.6px;
+  color:var(--text);
+}
+
+.intro{
+  color:var(--muted);
+  font-size:13px;
+  margin-bottom:6px;
+}
+
+.mini-row{
+  display:flex;
+  gap:10px;
+  margin-top:6px;
+  align-items:center;
+}
+
+.mini{
+  flex:1;
+  min-width:0;
+  height:72px;
+  overflow:hidden;
+
+  border-radius:16px;
+  background:var(--surface);
+
+  box-shadow:
+      6px 6px 14px rgba(205,145,90,.14),
+     -6px -6px 14px rgba(255,255,255,.95);
+}
+
+.mini img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+.numbers{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+  margin-top:18px;
+  align-items:start;
+}
+
+.num-block{
+  display:flex;
+  gap:12px;
+  align-items:flex-start;
+
+  padding:16px;
+  border-radius:20px;
+
+  background:var(--surface);
+
+  box-shadow:
+      6px 6px 14px rgba(205,145,90,.12),
+     -6px -6px 14px rgba(255,255,255,.95);
+}
+
+.num{
+  font-family:"Playfair Display",serif;
+  font-size:26px;
+  font-weight:700;
+  line-height:1;
+  width:56px;
+  color:var(--accent);
+}
+
+.num-content{
+  font-size:14px;
+  color:var(--text);
+}
+
+.num-content .title{
+  font-weight:700;
+  margin-bottom:6px;
+  font-size:15px;
+}
+
+.num-content p{
+  margin:0;
+  color:var(--muted);
+  font-size:13px;
+}
+
+.divider{
+  height:1px;
+  background:linear-gradient(
+    90deg,
+    transparent,
+    rgba(249,115,22,.25),
+    transparent
+  );
+  margin:18px 0;
+}
+
+.foot{
+  color:var(--muted);
+  font-size:12px;
+}
+
+@media (max-width:920px){
+  .page{
+    grid-template-columns:1fr;
+    padding:28px;
+  }
+
+  .right{
+    order:2;
+  }
+
+  .image-block{
+    order:1;
+    min-height:300px;
+  }
+
+  .numbers{
+    grid-template-columns:1fr;
+  }
+}
+.image-block{
+  position:relative;
+  min-height:420px;
+}
+
+.image-block iframe{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  border:0;
+  border-radius:24px;
+}
+
+.hero-box{
+  position:relative;
+
+  padding:28px;
+  border-radius:28px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(249,115,22,.12),
+      rgba(251,146,60,.22)
+    );
+
+  border:1px solid rgba(249,115,22,.15);
+
+  box-shadow:
+      10px 10px 24px rgba(205,145,90,.16),
+     -10px -10px 24px rgba(255,255,255,.9);
+
+  overflow:hidden;
+}
+
+.hero-box::before{
+  content:"";
+  position:absolute;
+
+  width:180px;
+  height:180px;
+
+  top:-80px;
+  left:-80px;
+
+  border-radius:50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(249,115,22,.22),
+      transparent 70%
+    );
+
+  pointer-events:none;
+}
+
+.hero-box::after{
+  content:"";
+  position:absolute;
+
+  width:140px;
+  height:140px;
+
+  bottom:-60px;
+  right:-60px;
+
+  border-radius:50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(251,146,60,.18),
+      transparent 70%
+    );
+
+  pointer-events:none;
+}
+
+.hero-box .heading{
+  margin-top:10px;
+  color:#2c2119;
+}
+
+.hero-box .intro{
+  margin-top:12px;
+}
+
+.foot{
+  display:flex;
+  align-items:center;
+  gap:12px;
+
+  padding:12px 16px;
+
+  border-radius:16px;
+
+  background:rgba(249,115,22,.08);
+
+  box-shadow:
+      4px 4px 10px rgba(205,145,90,.10),
+     -4px -4px 10px rgba(255,255,255,.85);
+
+  color:var(--muted);
+  font-size:12px;
+}
+
+.foot-logo{
+  width:36px;
+  height:36px;
+  object-fit:contain;
+  flex-shrink:0;
+}
+
+.foot-text{
+  line-height:1.5;
+}
+.soft-table { width: 100%; border-collapse: collapse; border-radius: 16px; overflow: hidden; font-family: Arial, sans-serif; background: #f7f7f7; box-shadow: 8px 8px 20px #d1d1d1, -8px -8px 20px #ffffff; } .soft-table th { background: linear-gradient(135deg, #ff8c00, #ffb347); color: #fff; padding: 14px; text-align: center; font-weight: bold; } .soft-table td { padding: 12px; text-align: center; color: #444; border-bottom: 1px solid #e6e6e6; background: #fafafa; } .soft-table tr:hover td { background: #fff3e6; transition: 0.3s; } .soft-table tr:last-child td { border-bottom: none; }
+</style>
+  </style>
+</head>
+<body>
+
+  <article class="page" aria-labelledby="main-title">
+   <figure class="image-block" aria-label="نمای اصلی نرم‌افزار WebGL">
+
+  
+  <iframe
+    src="s1/compani/index.html"
+    title="نمای اصلی نرم‌افزار WebGL"
+    loading="lazy"
+    allowfullscreen>
+  </iframe>
+
+  <div class="image-accent" aria-hidden="true"></div>
+
+</figure>
+
+<aside class="right" aria-labelledby="main-title">
+
+  <div class="hero-box">
+  <div class="kicker">گزارش عملکرد واحد تربیت بدنی</div>
+
+<h1 id="main-title" class="heading">
+
+    هزینه شرکت در مسابقات
+
+  </h1>
+
+  <div class="intro">
+
+      هزینه شرکت در مسابقات استانی واحد تربیت بدنی مجتمع مس درآلو در سال ۱۴۰۴
+
+    </div>
+</div>
+
+
+  <div class="numbers">
+
+     <div class="num-block">
+
+      <div class="num">04</div>
+
+      <div class="num-content">
+
+        <div class="title">
+
+      شامل:
+
+        </div>
+
+
+
+
+
+
+
+
+<table class="soft-table">
+  <tr>
+    <th>ماه</th>
+    <th>رشته</th>
+    <th>شهر / میزبان</th>
+    <th>زمان برگزاری</th>
+    <th>مبلغ ورودی (ریال)</th>
+  </tr>
+
+  <tr>
+    <td>خرداد</td>
+    <td>فوتبال 7 نفره</td>
+    <td>تبریز</td>
+    <td>21 خرداد لغایت 31 خرداد</td>
+    <td>45,000,000</td>
+  </tr>
+
+  <tr>
+    <td>تیر</td>
+    <td>تنیس روی میز (آقایان و بانوان)</td>
+    <td>مشهد مقدس / فولاد خراسان</td>
+    <td>6 تیر لغایت 17 تیرماه</td>
+    <td>35,000,000</td>
+  </tr>
+
+  <tr>
+    <td>تیر</td>
+    <td>پرس سینه</td>
+    <td>کرمان / مس رفسنجان</td>
+    <td>19 لغایت 20 تیر</td>
+    <td>25,000,000</td>
+  </tr>
+
+  <tr>
+    <td>مرداد</td>
+    <td>فوتبال پیشکسوتان</td>
+    <td>تبریز / مس سونگون</td>
+    <td>6 لغایت 18 مرداد</td>
+    <td>35,000,000</td>
+  </tr>
+
+  <tr>
+    <td>شهریور</td>
+    <td>شنا (آقایان و بانوان)</td>
+    <td>اصفهان / فولاد مبارکه</td>
+    <td>4 لغایت 6 شهریور بانوان<br>8 لغایت 10 شهریور آقایان</td>
+    <td>35,000,000</td>
+  </tr>
+
+  <tr>
+    <td>مهر</td>
+    <td>فوتبال آزاد</td>
+    <td>مشهد مقدس / فولاد خراسان</td>
+    <td>10 لغایت 18 مهر</td>
+    <td>25,000,000</td>
+  </tr>
+
+  <tr>
+    <td>آبان</td>
+    <td>آمادگی جسمانی آقایان (دو و میدانی)<br>دارت (آقایان و بانوان)</td>
+    <td>اهواز / فولاد خوزستان</td>
+    <td>آمادگی جسمانی و دوومیدانی: 11 لغایت 13 آبان<br>دارت: 21 لغایت 24 آبان</td>
+    <td>35,000,000</td>
+  </tr>
+
+  <tr>
+    <td>آذر</td>
+    <td>والیبال آقایان<br>والیبال بانوان</td>
+    <td>آبادان / کرمان / مس رفسنجان<br>تهران / سخت‌کوش کرج</td>
+    <td>12 تا 14 آذر</td>
+    <td>45,000,000</td>
+  </tr>
+
+  <tr>
+    <td>دی</td>
+    <td>شطرنج</td>
+    <td>کرمان / مس سرچشمه</td>
+    <td>26 تا 29 دی‌ماه</td>
+    <td>15,000,000</td>
+  </tr>
+
+  <tr>
+    <td>بهمن</td>
+    <td>بدمینتون</td>
+    <td>بندرعباس / فولاد هرمزگان</td>
+    <td>15 تا 17 بهمن</td>
+    <td>35,000,000</td>
+  </tr>
+</table>
+
+
+
+
+
+
+      </div>
+    </div>
+
+
+
+  </div>
+
+  <div class="divider"></div>
+
+  
+
+
+
+   
+
+      <div class="foot">
+  <img src="file/logo.png" alt="لوگو" class="foot-logo">
+
+  <div class="foot-text">
+    © 1404 — واحد تربیت بدنی مجتمع مس درآلو
+  </div>
+</div>
+    </aside>
+
+
+</body>
+</html>

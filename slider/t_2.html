@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>گزارش عملکرد 1404</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+:root{
+--primary:#ff6b00;
+--primary2:#ff9d4d;
+--dark:#0c111b;
+--light:#f7f7f7;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Vazirmatn',sans-serif;
+background:#f4f5f7;
+overflow-x:hidden;
+}
+
+/* HERO */
+
+.hero{
+background:
+linear-gradient(135deg,#0b111d 0%,#151f31 100%);
+color:white;
+padding:40px 8%;
+position:relative;
+overflow:hidden;
+}
+
+.hero:before{
+content:"";
+position:absolute;
+top:-100px;
+left:-100px;
+width:300px;
+height:300px;
+background:rgba(255,107,0,.15);
+border-radius:50%;
+filter:blur(80px);
+}
+
+.hero:after{
+content:"";
+position:absolute;
+bottom:-120px;
+right:-120px;
+width:350px;
+height:350px;
+background:rgba(255,107,0,.15);
+border-radius:50%;
+filter:blur(100px);
+}
+
+.hero-content{
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:30px;
+position:relative;
+z-index:2;
+}
+
+.hero h1{
+font-size:4rem;
+font-weight:800;
+color:#fff;
+}
+
+.hero h1 span{
+color:var(--primary);
+}
+
+.hero h2{
+font-weight:400;
+margin-top:10px;
+opacity:.9;
+}
+
+.hero-logo img{
+width:140px;
+background:white;
+padding:15px;
+border-radius:25px;
+}
+
+/* STATS */
+
+.stats{
+max-width:1200px;
+margin:-40px auto 50px;
+padding:0 20px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+position:relative;
+z-index:10;
+}
+
+.stat-card{
+background:white;
+border-radius:25px;
+padding:30px;
+text-align:center;
+box-shadow:0 10px 40px rgba(0,0,0,.08);
+}
+
+.stat-card i{
+font-size:40px;
+color:var(--primary);
+margin-bottom:15px;
+}
+
+.stat-card h3{
+font-size:40px;
+color:#111;
+}
+
+.stat-card span{
+color:#777;
+}
+
+/* TITLE */
+
+.section-title{
+text-align:center;
+margin-bottom:50px;
+}
+
+.section-title h2{
+font-size:2.4rem;
+color:#111;
+}
+
+/* TIMELINE */
+
+.timeline{
+max-width:1300px;
+margin:auto;
+padding:20px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:25px;
+}
+
+.timeline-card{
+background:white;
+border-radius:25px;
+padding:25px;
+display:flex;
+align-items:center;
+gap:20px;
+box-shadow:0 10px 30px rgba(0,0,0,.08);
+transition:.4s;
+border-right:5px solid var(--primary);
+}
+
+.timeline-card:hover{
+transform:translateY(-10px);
+box-shadow:0 25px 50px rgba(0,0,0,.15);
+}
+
+.num{
+width:70px;
+height:70px;
+min-width:70px;
+background:linear-gradient(135deg,var(--primary),var(--primary2));
+border-radius:50%;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:26px;
+font-weight:700;
+color:white;
+}
+
+.icon{
+width:60px;
+height:60px;
+background:#fff3eb;
+border-radius:18px;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:24px;
+color:var(--primary);
+}
+
+.text{
+flex:1;
+font-size:15px;
+line-height:2;
+}
+
+/* VIDEO */
+
+.video-box{
+max-width:1200px;
+margin:60px auto;
+padding:20px;
+}
+
+.video-frame{
+background:white;
+padding:20px;
+border-radius:25px;
+box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.video-frame iframe{
+width:100%;
+height:650px;
+border:none;
+border-radius:15px;
+}
+
+/* FOOTER */
+
+footer{
+background:#0c111b;
+color:white;
+text-align:center;
+padding:25px;
+margin-top:50px;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.hero-content{
+flex-direction:column-reverse;
+text-align:center;
+}
+
+.hero h1{
+font-size:2.5rem;
+}
+
+.video-frame iframe{
+height:400px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+
+<div class="hero-content">
+
+<div>
+<h1>گزارش <span>عملکرد</span></h1>
+<h2>واحد تربیت بدنی مجتمع مس درآلو | سال ۱۴۰۴</h2>
+</div>
+
+<div class="hero-logo">
+<img src="file/logo.png">
+</div>
+
+</div>
+
+</section>
+
+<section class="stats">
+
+<div class="stat-card">
+<i class="fas fa-trophy"></i>
+<h3>8</h3>
+<span>مقام کسب شده</span>
+</div>
+
+<div class="stat-card">
+<i class="fas fa-users"></i>
+<h3>5</h3>
+<span>تیم تشکیل شده</span>
+</div>
+
+<div class="stat-card">
+<i class="fas fa-medal"></i>
+<h3>12</h3>
+<span>مسابقه برگزار شده</span>
+</div>
+
+<div class="stat-card">
+<i class="fas fa-user-check"></i>
+<h3>420</h3>
+<span>نفر استفاده کننده</span>
+</div>
+
+</section>
+
+<div class="section-title">
+<h2>خلاصه اقدامات انجام شده در سال ۱۴۰۴</h2>
+</div>
+
+<section class="timeline">
+
+<div class="timeline-card">
+<div class="num">01</div>
+<div class="icon"><i class="fas fa-handshake"></i></div>
+<div class="text">بستن قرارداد با باشگاه‌های ورزشی شهرهای رابر، بافت، بردسیر، راین و کرمان جهت ارائه خدمات بدنسازی، استخر، سالن ورزشی و ووشو به کارکنان.</div>
+</div>
+
+<div class="timeline-card">
+<div class="num">02</div>
+<div class="icon"><i class="fas fa-fingerprint"></i></div>
+<div class="text">خرید و راه‌اندازی دستگاه ثبت اثر انگشت پرسنل جهت تجهیز باشگاه‌های طرف قرارداد.</div>
+</div>
+
+<div class="timeline-card">
+<div class="num">03</div>
+<div class="icon"><i class="fas fa-futbol"></i></div>
+<div class="text">تشکیل تیم فوتسال مجتمع و آغاز فعالیت رسمی تیم.</div>
+</div>
+
+<div class="timeline-card">
+<div class="num">04</div>
+<div class="icon"><i class="fas fa-trophy"></i></div>
+<div class="text">برگزاری مسابقات بین مجتمعی و کسب مقام اول فوتسال و مقام دوم والیبال.</div>
+</div>
+
+<div class="timeline-card">
+<div class="num">05</div>
+<div class="icon"><i class="fas fa-users"></i></div>
+<div class="text">برگزاری مسابقات بین اموری در داخل مجتمع با مشارکت کارکنان.</div>
+</div>
+
+<div class="timeline-card">
+<div class="num">06</div>
+<div class="icon"><i class="fas fa-table-tennis-paddle-ball"></i></div>
+<div class="text">برگزاری مسابقات انتخابی و تشکیل تیم تنیس روی میز مجتمع.</div>
+</div>
+
+<div class="timeline-card">
+<div class="num">07</div>
+<div class="icon"><i class="fas fa-shirt"></i></div>
+<div class="text">خرید پک ورزشی برای مدیران و رؤسای مجتمع.</div>
+</div>
+
+<div class="timeline-card">
+<div class="num">08</div>
+<div class="icon"><i class="fas fa-building"></i></div>
+<div class="text">پیگیری و تعیین ساختمان مستقل امور تربیت بدنی مجتمع.</div>
+</div>
+
+<div class="timeline-card">
+<div class="num">09</div>
+<div class="icon"><i class="fas fa-flag"></i></div>
+<div class="text">استقلال واحد ورزش مجتمع درآلو از مجتمع سرچشمه.</div>
+</div>
+
+<div class="timeline-card">
+<div class="num">10</div>
+<div class="icon"><i class="fas fa-person-running"></i></div>
+<div class="text">برگزاری مسابقات دو و میدانی و فوتبال هفت نفره در شهرستان رابر.</div>
+</div>
+<div class="timeline-card">
+<div class="num">11</div>
+<div class="icon"><i class="fas fa-person-running"></i></div>
+<div class="text">تشکیل تیم فوتبال هفت نفره جهت حضور برای نخستین بار در مسابقات ایمیدرو.</div>
+</div>
+
+<div class="timeline-card">
+<div class="num">12</div>
+<div class="icon"><i class="fas fa-person-running"></i></div>
+<div class="text">حمایت از ورزشکاران تیم فوتسال منتخب شهرستان رابر.</div>
+</div>
+<div class="timeline-card">
+<div class="num">13</div>
+<div class="icon"><i class="fas fa-person-running"></i></div>
+<div class="text">تشکیل تیم شطرنج مجتمع و شرکت در مسابقات کارگری استان.</div>
+</div>
+<div class="timeline-card">
+<div class="num">14</div>
+<div class="icon"><i class="fas fa-person-running"></i></div>
+<div class="text">خرید البسه و تجهیزات ورزشی جهت تجهیز و تجلیل از تیم‌های ورزشی مجتمع.</div>
+</div>
+<div class="timeline-card">
+<div class="num">15</div>
+<div class="icon"><i class="fas fa-person-running"></i></div>
+<div class="text">پوشش رسانه‌ای رویدادهای ورزشی مجتمع از طریق خبرگزاری‌ها و رسانه‌های ورزشی.</div>
+</div>
+
+</section>
+
+<section class="video-box">
+
+<div class="video-frame">
+
+<iframe
+src="s1/foots/index.html">
+</iframe>
+
+</div>
+
+</section>
+
+<footer>
+
+© واحد تربیت بدنی مجتمع مس درآلو
+
+</footer>
+
+</body>
+</html>
