@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VisualLightBox>
+    <Gallery version="2.5">
+        <Settings>
+            <AppName>WOW Slider</AppName>
+            <AppUrlS>WOWSlider.com</AppUrlS>
+            <AppVersion>9.0</AppVersion>
+            <AutoPlay>true</AutoPlay>
+            <AutoPlayVideo>false</AutoPlayVideo>
+            <Captions>true</Captions>
+            <CaptionsEffect>parallax</CaptionsEffect>
+            <Controls>true</Controls>
+            <FontSize>14</FontSize>
+            <FullScreen>true</FullScreen>
+            <GalleryName>1</GalleryName>
+            <GallerySuffix>1</GallerySuffix>
+            <HtmlCharset>UTF-8</HtmlCharset>
+            <ImageAspectRatio>true</ImageAspectRatio>
+            <ImageEffect>glass_parallax,parallax,brick,blur,blast,fade</ImageEffect>
+            <ImageFillColor>#000000</ImageFillColor>
+            <ImageHeight>720</ImageHeight>
+            <ImageQuality>90</ImageQuality>
+            <ImageShrink2>false</ImageShrink2>
+            <ImageStretch>true</ImageStretch>
+            <ImageTemplate>C:/Program Files (x86)/WOW Slider/templates/backgnd/epsilon/</ImageTemplate>
+            <ImageTemplateName>Epsilon</ImageTemplateName>
+            <ImageWidth>1280</ImageWidth>
+            <Images>true</Images>
+            <JoomlaType>2.5</JoomlaType>
+            <OneLoop>false</OneLoop>
+            <OrderRandom>false</OrderRandom>
+            <PlayPause>true</PlayPause>
+            <Preloader>false</Preloader>
+            <PublishFileName>F:/مس/DARALOO/report/2/New folder (7)/s1/compani/publish/index.html</PublishFileName>
+            <PublishIndex>index.html</PublishIndex>
+            <PublishPath>F:/مس/DARALOO/report/2/New folder (7)/s1/compani/publish</PublishPath>
+            <PublishPreview>true</PublishPreview>
+            <PublishType>file</PublishType>
+            <RelativePath>false</RelativePath>
+            <ShowBullets>1</ShowBullets>
+            <ShowControls>false</ShowControls>
+            <ShowTooltips>1</ShowTooltips>
+            <SizeStyle>3</SizeStyle>
+            <SlideshowDelay>20</SlideshowDelay>
+            <SlideshowDuration>20</SlideshowDuration>
+            <SoundEnable>0</SoundEnable>
+            <SoundFileName></SoundFileName>
+            <StopOnHover>false</StopOnHover>
+            <SwipeSupport>2</SwipeSupport>
+            <TemplateColor>#ff8025</TemplateColor>
+            <TemplateFont>Roboto</TemplateFont>
+            <TemplateName>epsilon</TemplateName>
+            <ThumbAlign>bottom</ThumbAlign>
+            <ThumbFormat>jpg</ThumbFormat>
+            <ThumbHeight>48</ThumbHeight>
+            <ThumbQuality>90</ThumbQuality>
+            <ThumbWidth>0</ThumbWidth>
+            <Thumbnails>false</Thumbnails>
+            <TooltipPos>bottom</TooltipPos>
+            <noFrame>0</noFrame>
+        </Settings>
+        <Images RelativePath="false">
+            <Image>
+                <url>F:/مس/DARALOO/report/2/New folder (7)/s1/compani/01.jpg</url>
+                <title>لیست پرسنل رسمی</title>
+                <description>واحد تربیت بدنی_مجتمع مس درآلو</description>
+                <filesize>126108</filesize>
+            </Image>
+            <Image>
+                <url>F:/مس/DARALOO/report/2/New folder (7)/s1/compani/02.jpg</url>
+                <title>لیست پرسنل رسمی</title>
+                <description>واحد تربیت بدنی_مجتمع مس درآلو</description>
+                <filesize>179594</filesize>
+            </Image>
+            <Image>
+                <url>F:/مس/DARALOO/report/2/New folder (7)/s1/compani/03.jpg</url>
+                <title>لیست پرسنل رسمی</title>
+                <description>واحد تربیت بدنی_مجتمع مس درآلو</description>
+                <filesize>190284</filesize>
+            </Image>
+            <Image>
+                <url>F:/مس/DARALOO/report/2/New folder (7)/s1/compani/04.jpg</url>
+                <title>لیست پرسنل رسمی</title>
+                <description>واحد تربیت بدنی_مجتمع مس درآلو</description>
+                <filesize>97648</filesize>
+            </Image>
+            <Image>
+                <url>F:/مس/DARALOO/report/2/New folder (7)/s1/compani/05.jpg</url>
+                <title>لیست پرسنل رسمی</title>
+                <description>واحد تربیت بدنی_مجتمع مس درآلو</description>
+                <filesize>124043</filesize>
+            </Image>
+        </Images>
+    </Gallery>
+</VisualLightBox>
