@@ -32,7 +32,7 @@
         <div class="cardhead"><div class="step">۰</div><div><h3>استعلام سابقه مراجعه</h3><small>پیش از تشکیل پرونده، کد ملی را استعلام کنید تا مشخص شود مراجعه‌کننده قبلاً پرونده داشته است یا نه</small></div></div>
         <div class="cardbody">
           <div class="lookuprow"><input class="control" id="lookupCode" inputmode="numeric" maxlength="10" placeholder="کد ملی ۱۰ رقمی مراجعه‌کننده" autocomplete="off"><button type="button" class="btn btn-primary" id="lookupBtn">استعلام <span>⌕</span></button></div>
-          <div class="hint">در صورت نبودن پرونده، فرم تشکیل پرونده فعال می‌شود. اگر پرونده وجود داشته باشد، مرحله فعلی آن نمایش داده می‌شود و تشکیل پرونده جدید انجام نمی‌شود.</div>
+          <div class="hint">در صورت نبودن پرونده، فرم فعال می‌شود. تشکیل پرونده مجدد فقط در صورت رد شدن آخرین ویزیت توسط پزشک امکان‌پذیر است.</div>
           <div class="lookupresult" id="lookupResult" aria-live="polite"></div>
         </div>
       </section>
@@ -63,9 +63,9 @@
       <section class="card">
         <div class="cardhead"><div class="step">۳</div><div><h3>اطلاعات نوبت و محل مراجعه</h3><small>توسط اپراتور پذیرش تکمیل شود؛ معاینه و نسخه را پزشک در فرم خودش ثبت می‌کند</small></div></div>
         <div class="cardbody"><div class="grid">
-          <div class="field"><label>تاریخ و ساعت مراجعه <span class="req">*</span></label><input class="control" id="visitAt" type="datetime-local"></div>
+          <div class="field"><label>زمان تخمینی مراجعه</label><input class="control" id="visitAtDisplay" readonly placeholder="پس از ثبت نوبت محاسبه می‌شود"><div class="hint">زمان بر اساس پزشکان فعال و نوبت‌های قبلی همان خدمت تعیین می‌شود.</div></div>
           <div class="field"><label>محل مراجعه / ویزیت <span class="req">*</span></label><select class="control" id="locationSelect"><option value="">در حال دریافت فهرست...</option></select><input class="control hidden" id="locationManual" placeholder="محل مراجعه را دستی وارد کنید" style="margin-top:8px"><button type="button" class="btn btn-secondary" id="toggleLocation" style="margin-top:8px;min-height:36px;padding:7px 12px">＋ ثبت محل جدید به‌صورت دستی</button></div>
-          <div class="field"><label>پزشک مسئول <span class="req">*</span></label><select class="control" id="doctorSelect"><option value="">در حال دریافت فهرست پزشکان...</option></select><button type="button" class="btn btn-secondary" id="toggleDoctor" style="margin-top:8px;min-height:36px;padding:7px 12px">ورود دستی پزشک / عدم دسترسی به فهرست</button><div id="doctorManualBox" class="hidden" style="margin-top:8px"><input class="control" id="doctorCodeManual" placeholder="شناسه پزشک، مثال DR-001" dir="ltr"><input class="control" id="doctorNameManual" placeholder="نام و نام خانوادگی پزشک" style="margin-top:7px"><input class="control" id="doctorServiceManual" placeholder="خدمت پزشکی / تخصص" style="margin-top:7px"></div><div class="hint" id="doctorHint">شناسه پزشک با انتخاب نام از فهرست تکمیل می‌شود.</div></div>
+          <div class="field"><label>پزشک مسئول</label><input class="control" id="doctorDisplay" readonly placeholder="به‌صورت خودکار تخصیص می‌یابد"><div class="hint" id="doctorHint">سامانه پزشک آزاد همان خدمت را به‌صورت خودکار انتخاب می‌کند.</div></div><div class="field"><label>مدت انتظار تخمینی</label><input class="control" id="waitingDisplay" readonly placeholder="پس از ثبت نوبت محاسبه می‌شود"></div><div class="field"><label>مدت ویزیت پزشک</label><input class="control" id="durationDisplay" readonly placeholder="از شیت پزشکان"></div>
         </div></div>
       </section>
       <section class="card">
@@ -106,7 +106,7 @@
         <div class="guideitem"><div class="guideicon">۴</div><div><b>ثبت نهایی</b><span>پس از ثبت موفق، شناسه پرونده را برای مراجعه‌کننده نگهداری کنید.</span></div></div>
       </div></div>
       <div class="notice"><b>محدوده دسترسی این پنل</b><br>این فرم فقط برای تشکیل پرونده و ثبت اطلاعات اولیه است. تشخیص، اقدامات درمانی و نسخه دارویی باید توسط پزشک و در پنل مستقل پزشک ثبت شوند.</div>
-      <div class="sidecard"><h4>اتصال به پایگاه داده</h4><p>اطلاعات در Google Sheets ذخیره و پوشه اختصاصی پرونده در Google Drive ایجاد می‌شود. برای کارکرد صحیح، نشانی Web App باید در تنظیمات فایل وارد شود.</p></div>
+      <div class="sidecard"><h4>اتصال به پایگاه داده</h4><p>اطلاعات در DATABse ذخیره و پوشه اختصاصی پرونده در SERVER ایجاد می‌شود. برای کارکرد صحیح، نشانی Web App باید در تنظیمات فایل وارد شود.</p></div>
     </aside>
   </div>
 </main>
@@ -114,7 +114,7 @@
 'use strict';
 
 // نشانی انتشار Web App را در این قسمت قرار دهید؛ باید به /exec ختم شود.
-const API_URL = 'https://script.google.com/macros/s/AKfycbzmkbjeFKd1YlXAybAck4372Ov8qAeQavRlrTzAyJjleyC4QIbT7J6eMb1tozDA0Yea/exec';
+const API_URL = 'https://script.google.com/macros/s/AKfycbz2cUws3uKWOPlpr-Py4OIZmZgE_W3uEomqEaJVPyzFEg19iprch59gE1TgRAgWP6mQ/exec';
 const MAX_FILE_SIZE = 5 * 1024 * 1024;
 const $ = (s) => document.querySelector(s);
 const form = $('#patientForm');
@@ -219,6 +219,7 @@ async function submitRegistration(data){
   const text=await response.text();
   try{return JSON.parse(text);}catch(_){throw new Error('پاسخ سرور قابل خواندن نیست. احتمالاً محدودیت CORS یا نشانی اشتباه Web App وجود دارد.');}
 }
+function formatVisitDate(value){if(!value)return '—';const d=new Date(value);return isNaN(d)?value:d.toLocaleString('fa-IR',{dateStyle:'short',timeStyle:'short'});}
 form.addEventListener('submit',async(event)=>{
   event.preventDefault(); resultBox.className='result';
   const btn=$('#submitBtn');
@@ -238,8 +239,9 @@ form.addEventListener('submit',async(event)=>{
     if(file){data.fileData=await readFileAsDataUrl(file);data.fileName=file.name;data.fileMime=file.type||'';data.fileSize=file.size;}
     const answer=await submitRegistration(data);
     if(answer && answer.success){
-      const extra=answer.visitId?(' نوبت و پزشک ('+(answer.doctorName||'')+') ثبت شد؛ شناسه برگه ویزیت: '+answer.visitId+'.'):'';
+      const extra=answer.visitId?(' نوبت '+(answer.queueNumber||'')+' برای '+(answer.service||data.service)+' ثبت شد؛ پزشک: '+(answer.doctorName||'')+'؛ زمان مراجعه: '+formatVisitDate(answer.visitAt)+'؛ شناسه برگه: '+answer.visitId+'.'):'';
       rememberForPrint(data,answer);
+      $('#visitAtDisplay').value=formatVisitDate(answer.visitAt); $('#doctorDisplay').value=answer.doctorName||''; $('#waitingDisplay').value=(answer.waitingMinutes||0)+' دقیقه'; $('#durationDisplay').value=(answer.visitDuration||15)+' دقیقه';
       showResult(answer.visitWarning?'info':'success',answer.duplicateRequest?'این درخواست قبلاً ثبت شده است':'پرونده با موفقیت تشکیل شد',(answer.message||'اطلاعات مراجعه‌کننده ذخیره شد.')+extra+(answer.visitWarning?(' '+answer.visitWarning):''),answer.patientId);
       addPrintButton();
       form.reset(); setNewRequestId(); resetLookup(); resetVisitUi();
@@ -273,7 +275,7 @@ function currentDoctor(){
 /* =====================================================
    چاپ فرم فیزیکی و دست‌نویس پزشک - یک صفحه A4
    فقط مربوط به دکمه چاپ صفحه فعلی است.
-   هیچ تغییری در PDF ذخیره‌شده در Google Drive ندارد.
+   هیچ تغییری در PDF ذخیره‌شده در SERVER ندارد.
 ===================================================== */
 
 function addPrintStyles(){
@@ -580,6 +582,22 @@ function addPrintStyles(){
         color:#3f7a62!important;
       }
 
+      #daralooPrintCard .queue-stamp .queue-service{
+        display:block!important;
+        margin-top:1mm!important;
+        font-size:9pt!important;
+        font-weight:800!important;
+        color:#155b49!important;
+      }
+
+      #daralooPrintCard .queue-stamp .queue-deadline{
+        display:block!important;
+        margin-top:.7mm!important;
+        font-size:7pt!important;
+        font-weight:700!important;
+        color:#3f7a62!important;
+      }
+
       #daralooPrintCard .queue-stamp .queue-number{
         display:block!important;
         font-size:38pt!important;
@@ -620,13 +638,14 @@ function printDate(value){
     return String(value);
   }
 
-  return d.toLocaleString('fa-IR',{
+  return new Intl.DateTimeFormat('fa-IR-u-ca-persian',{
+    timeZone:'Asia/Tehran',
     year:'numeric',
     month:'2-digit',
     day:'2-digit',
     hour:'2-digit',
     minute:'2-digit'
-  });
+  }).format(d);
 }
 
 
@@ -786,9 +805,20 @@ label.textContent = 'شماره نوبت';
 
 const number = document.createElement('span');
 number.className = 'queue-number';
-number.textContent = currentPatient.queueNumber || '—';
+number.textContent = (currentVisit.queueNumber || currentPatient.queueNumber) || '—';
 
-stamp.append(label, number);
+const serviceLine = document.createElement('span');
+serviceLine.className = 'queue-service';
+serviceLine.textContent = currentVisit.service || doc.service || p.service || 'خدمت پزشکی';
+
+const deadlineLine = document.createElement('span');
+deadlineLine.className = 'queue-deadline';
+const deadlineValue = currentVisit.visitEndAt || currentVisit.visitAt || '';
+deadlineLine.textContent = deadlineValue
+  ? ('مهلت مراجعه تا ساعت ' + new Date(deadlineValue).toLocaleTimeString('fa-IR', {timeZone:'Asia/Tehran', hour:'2-digit', minute:'2-digit'}))
+  : 'زمان مراجعه: ' + (currentVisit.visitAt ? printDate(currentVisit.visitAt) : 'در انتظار تعیین');
+
+stamp.append(label, number, serviceLine, deadlineLine);
 
   brand.appendChild(photoBox);
   brand.appendChild(brandInfo);
@@ -819,6 +849,8 @@ stamp.append(label, number);
   ['نام و نام خانوادگی',((p.firstName||'')+' '+(p.lastName||'')).trim()],
   ['کد ملی',p.nationalCode],
   ['شناسه پرونده',p.patientId],
+  ['شماره پرونده مراجعه',p.caseNumber>1?('پرونده شماره '+p.caseNumber):'پرونده اول'],
+  ['علت رد پرونده قبلی',p.previousRejectionReason||'—'],
   ['نام پدر',p.fatherName],
   ['شماره تماس',p.mobile],
   ['سن',p.age],
@@ -841,12 +873,14 @@ stamp.append(label, number);
   const visitGrid=createPrintGrid();
 
   [
-    ['تاریخ و ساعت',printDate(currentVisit.visitAt)],
-    ['خدمت پزشکی',doc.service||p.service],
+    ['زمان تخمینی مراجعه',printDate(currentVisit.visitAt)],
+    ['شماره نوبت خدمت',currentVisit.queueNumber||p.queueNumber],
+    ['مدت انتظار تخمینی', (currentVisit.waitingMinutes||0)+' دقیقه'],
+    ['مدت ویزیت پزشک', (currentVisit.visitDuration||15)+' دقیقه'],
+    ['خدمت پزشکی',currentVisit.service||doc.service||p.service],
     ['نام پزشک مسئول',doc.name],
-    ['شناسه پزشک',doc.code],
     ['شناسه برگه', currentVisit.visitId],
-    ['اپراتور ثبت‌کننده',currentVisit.operatorCode]
+    ['اپراتور ثبت‌کننده',currentVisit.operatorName]
   ].forEach(([label,value])=>{
     visitGrid.appendChild(createPrintCell(label,value));
   });
@@ -1093,7 +1127,7 @@ async function printVisitCard(){
 
 
 function rememberForPrint(data,answer){
-  const doctor=doctorsList.find(d=>d.code===data.visitDoctorCode)||{};
+  const doctor={code:answer.doctorCode||'',name:answer.doctorName||'',service:answer.service||data.service};
   const isImage=data.fileData && /^data:image\//i.test(data.fileData);
   currentPatient={
     firstName:data.firstName,lastName:data.lastName,fatherName:data.fatherName,
@@ -1101,14 +1135,19 @@ function rememberForPrint(data,answer){
     residence:data.residence==='سایر'?(data.residenceOther||'سایر'):data.residence,
     service:data.service==='سایر'?(data.serviceOther||'سایر'):data.service,
     queueNumber:answer.queueNumber||'',patientId:answer.patientId||'',
+    caseNumber:answer.caseNumber||1,previousRejectionReason:answer.previousRejectionReason||'',
     photoDataUrl:isImage?data.fileData:'',photoFileId:answer.fileId||''
   };
   currentVisit={
-    visitAt:data.visitAt,location:data.visitLocation,visitId:answer.visitId||'',
+    visitAt:answer.visitAt||'',location:data.visitLocation,visitId:answer.visitId||'',
     operatorCode:data.operatorCode,
-    doctorCode:data.visitDoctorCode,
-    doctorName:answer.doctorName||doctor.name||data.visitDoctorName||'',
-    doctorService:doctor.service||data.visitDoctorService||''
+    operatorName:answer.operatorName||data.operatorName||'',
+    service:answer.service||data.service,
+    visitEndAt:answer.visitEndAt||'',
+    doctorCode:answer.doctorCode||'',
+    doctorName:answer.doctorName||'',
+    doctorService:answer.service||data.service,
+    queueNumber:answer.queueNumber||'', waitingMinutes:answer.waitingMinutes||0, visitDuration:answer.visitDuration||15
   };
 }
 
@@ -1120,71 +1159,50 @@ function addPrintButton(){
   resultBox.appendChild(btn);
 }
 
-/* ---------- نوبت، محل مراجعه و پزشک ---------- */
-let doctorsList=[]; let manualLocation=false; let manualDoctor=false;
-function localNowValue(){const d=new Date();d.setMinutes(d.getMinutes()-d.getTimezoneOffset());return d.toISOString().slice(0,16);}
+/* ---------- نوبت خودکار و محل مراجعه ---------- */
+let manualLocation=false;
 function fillVisitConfig(data){
   fillSelect($('#locationSelect'),data.visitLocations||[],'انتخاب محل مراجعه');
-  doctorsList=data.doctors||[];
-  const sel=$('#doctorSelect'); sel.innerHTML='';
-  const first=document.createElement('option'); first.value=''; first.textContent=doctorsList.length?'انتخاب پزشک':'فهرست پزشکان فعال یافت نشد'; sel.appendChild(first);
-  doctorsList.forEach(d=>{const o=document.createElement('option');o.value=d.code;o.textContent=d.name+(d.service?' — '+d.service:'')+' ('+d.code+')';sel.appendChild(o);});
   if(!(data.visitLocations||[]).length) setManualLocation(true);
-  if(!doctorsList.length) setManualDoctor(true);
 }
 function setManualLocation(on){
   manualLocation=on; $('#locationManual').classList.toggle('hidden',!on); $('#locationSelect').classList.toggle('hidden',on);
   $('#toggleLocation').textContent=on?'بازگشت به انتخاب از فهرست':'＋ ثبت محل جدید به‌صورت دستی';
 }
-function setManualDoctor(on){
-  manualDoctor=on; $('#doctorManualBox').classList.toggle('hidden',!on); $('#doctorSelect').classList.toggle('hidden',on);
-  $('#toggleDoctor').textContent=on?'بازگشت به انتخاب از فهرست':'ورود دستی پزشک / عدم دسترسی به فهرست';
-  updateDoctorHint();
-}
-function updateDoctorHint(){
-  const hint=$('#doctorHint');
-  if(manualDoctor){hint.textContent='در ورود دستی، شناسه پزشک باید فعال باشد؛ در غیر این صورت نام و خدمت واردشده ثبت می‌شود.';return;}
-  const d=doctorsList.find(x=>x.code===$('#doctorSelect').value);
-  hint.textContent=d?('شناسه پزشک: '+d.code+(d.service?' · خدمت: '+d.service:'')):'شناسه پزشک با انتخاب نام از فهرست تکمیل می‌شود.';
-}
 function resetVisitUi(){
-  if(doctorsList.length) setManualDoctor(false);
   if($('#locationSelect').options.length>1) setManualLocation(false);
-  $('#visitAt').value=''; updateDoctorHint();
+  $('#visitAtDisplay').value=''; $('#doctorDisplay').value=''; $('#waitingDisplay').value=''; $('#durationDisplay').value='';
 }
 function collectVisit(){
-  const visitAt=$('#visitAt').value;
-  if(!visitAt) throw new Error('تاریخ و ساعت مراجعه را وارد کنید.');
   const location=(manualLocation?$('#locationManual').value:$('#locationSelect').value).trim();
   if(!location) throw new Error('محل مراجعه / ویزیت را وارد کنید.');
-  let code,name='',service='';
-  if(manualDoctor){
-    code=normalizeDigits($('#doctorCodeManual').value).trim().toUpperCase();
-    name=$('#doctorNameManual').value.trim(); service=$('#doctorServiceManual').value.trim();
-    if(!code) throw new Error('شناسه پزشک را وارد کنید.');
-  }else{
-    code=$('#doctorSelect').value;
-    if(!code) throw new Error('پزشک مسئول را انتخاب کنید.');
-  }
-  return {visitAt,visitLocation:location,visitDoctorCode:code,visitDoctorName:name,visitDoctorService:service,doctorEntryMode:manualDoctor?'manual':'list'};
+  return {visitLocation:location};
 }
 $('#toggleLocation').addEventListener('click',()=>setManualLocation(!manualLocation));
-$('#toggleDoctor').addEventListener('click',()=>setManualDoctor(!manualDoctor));
-$('#doctorSelect').addEventListener('change',updateDoctorHint);
 
 /* ---------- استعلام سابقه مراجعه با کد ملی ---------- */
 let lookedUpCode='';
+let secondCaseContext=null;
 function lockForm(){
   form.classList.add('hidden');
   form.elements.nationalCode.readOnly=false;
   lookedUpCode='';
+  secondCaseContext=null;
 }
-function unlockForm(code){
+function unlockForm(code, context){
   form.classList.remove('hidden');
   form.elements.nationalCode.value=code;
   form.elements.nationalCode.readOnly=true;
   lookedUpCode=code;
-  if(!$('#visitAt').value) $('#visitAt').value=localNowValue();
+  secondCaseContext=context||null;
+  resetVisitUi();
+  if(secondCaseContext){
+    form.elements.nationalCode.value=code;
+    const note=document.createElement('div');
+    note.className='lk-banner found';
+    note.textContent='این مراجعه پرونده شماره '+(secondCaseContext.nextCaseNumber||2)+' است. علت رد پرونده قبلی: '+(secondCaseContext.rejectionReason||'ثبت نشده');
+    form.prepend(note);
+  }
 }
 function renderLookup(r){
   const box=$('#lookupResult'); box.textContent='';
@@ -1222,6 +1240,13 @@ function renderLookup(r){
   const stage=document.createElement('div'); stage.className='lk-stage';
   stage.textContent='مرحله فعلی: '+(r.stageText||'');
   box.appendChild(stage);
+  if(r.secondCaseAllowed){
+    const rejected=document.createElement('div');
+    rejected.className='lk-banner found';
+    rejected.style.marginTop='12px';
+    rejected.textContent='وضعیت ویزیت: '+(r.rejectedVisitStatus||'تأیید نشد')+' | علت رد پزشک: '+(r.rejectionReason||'علتی در ستون AC ثبت نشده است.')+' | مجوز تشکیل پرونده شماره '+(r.nextCaseNumber||2)+' صادر شده است.';
+    box.appendChild(rejected);
+  }
   if(r.lastVisit){
     const lv=document.createElement('div'); lv.className='hint';
     lv.textContent='آخرین برگه ویزیت: '+[r.lastVisit.visitAt,r.lastVisit.service,r.lastVisit.doctorName?('دکتر/پزشک: '+r.lastVisit.doctorName):'',r.lastVisit.completed?'ویزیت تکمیل‌شده':'در انتظار ویزیت'].filter(Boolean).join(' · ');
@@ -1230,23 +1255,53 @@ function renderLookup(r){
   const actions=document.createElement('div'); actions.className='lk-actions';
   const pb=document.createElement('button'); pb.type='button'; pb.className='btn btn-primary';
   pb.innerHTML='چاپ مجدد برگه مراجعه (A4) <span>⎙</span>';
-  pb.addEventListener('click',()=>reprintFromLookup(r));
-  actions.appendChild(pb); box.appendChild(actions);
+  pb.addEventListener('click', async ()=>{
+    if(pb.disabled) return;
+    pb.disabled=true;
+    const oldText=pb.textContent;
+    pb.textContent='در حال آماده‌سازی برگه چاپ...';
+    try{
+      await reprintFromLookup(r);
+    }catch(err){
+      const error=document.createElement('div');
+      error.className='lk-banner err';
+      error.textContent='چاپ مجدد انجام نشد: '+(err && err.message ? err.message : 'خطای نامشخص');
+      box.appendChild(error);
+    }finally{
+      pb.disabled=false;
+      pb.innerHTML='چاپ مجدد برگه مراجعه (A4) <span>⎙</span>';
+    }
+  });
+  actions.appendChild(pb);
+  if(r.secondCaseAllowed){
+    const newCaseBtn=document.createElement('button');
+    newCaseBtn.type='button'; newCaseBtn.className='btn btn-primary';
+    newCaseBtn.style.marginInlineStart='8px';
+    newCaseBtn.textContent='تشکیل پرونده شماره '+(r.nextCaseNumber||2);
+    newCaseBtn.addEventListener('click',()=>{
+      unlockForm(r.nationalCode||$('#lookupCode').value,{nextCaseNumber:r.nextCaseNumber||2,rejectionReason:r.rejectionReason||'',previousPatientId:(r.patient||{}).patientId||''});
+      form.scrollIntoView({behavior:'smooth',block:'start'});
+    });
+    actions.appendChild(newCaseBtn);
+  }
+  box.appendChild(actions);
 }
 
 function reprintFromLookup(r){
   const p=r.patient||{}; const v=r.lastVisit||{};
-  const doctor=doctorsList.find(d=>d.code===v.doctorCode)||{};
   currentPatient={
     firstName:p.firstName,lastName:p.lastName,fatherName:p.fatherName,age:p.age,gender:p.gender,
     mobile:p.mobile,nationalCode:p.nationalCode,residence:p.residence,service:p.service,
-    queueNumber:p.queueNumber,patientId:p.patientId,photoDataUrl:'',photoFileId:p.photoFileId
+    queueNumber:p.queueNumber,patientId:p.patientId,caseNumber:p.caseNumber||1,previousRejectionReason:r.rejectionReason||p.previousRejectionReason||'',photoDataUrl:'',photoFileId:p.photoFileId
   };
   currentVisit={
-    visitAt:v.visitAt||'',location:v.location||'',visitId:v.visitId||'',operatorCode:v.operatorCode||'',
-    doctorCode:v.doctorCode||'',doctorName:v.doctorName||'',doctorService:v.service||doctor.service||''
+    visitAt:v.visitAt||'',visitEndAt:v.visitEndAt||'',location:v.location||'',visitId:v.visitId||'',
+    operatorCode:v.operatorCode||'',operatorName:v.operatorName||p.operatorName||'',
+    service:v.service||p.service||'',doctorCode:v.doctorCode||'',doctorName:v.doctorName||'',
+    doctorService:v.service||'',queueNumber:v.queueNumber||p.queueNumber||'',
+    waitingMinutes:v.waitingMinutes||0,visitDuration:v.visitDuration||15
   };
-  printVisitCard();
+  return printVisitCard();
 }
 async function runLookup(){
   const code=normalizeDigits($('#lookupCode').value).replace(/\D/g,'');
@@ -1272,7 +1327,7 @@ async function runLookup(){
     box.appendChild(b);
   }finally{ btn.disabled=false; btn.innerHTML='استعلام <span>⌕</span>'; }
 }
-function resetLookup(){ lockForm(); $('#lookupCode').value=''; $('#lookupResult').textContent=''; }
+function resetLookup(){ lockForm(); const note=form.querySelector(':scope > .lk-banner'); if(note) note.remove(); $('#lookupCode').value=''; $('#lookupResult').textContent=''; }
 $('#lookupBtn').addEventListener('click',runLookup);
 $('#lookupCode').addEventListener('keydown',e=>{ if(e.key==='Enter'){e.preventDefault();runLookup();} });
 $('#lookupCode').addEventListener('input',()=>{
