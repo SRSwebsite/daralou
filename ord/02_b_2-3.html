@@ -324,6 +324,10 @@ details.reject summary{cursor:pointer;font-weight:700;color:#a33333;font-size:13
 <section class="card"><div class="cardhead"><div class="step">۴</div><div><h3>پایان ویزیت و ثبت کارت</h3><small>پس از بازگشت کارت دست‌نویس از پزشک</small></div></div><div class="body"><div class="grid">
 <div class="field"><label>تعداد اقلام دارو در نسخه <b style="color:#b84242">*</b></label><input class="control" id="medCount" type="number" min="0" max="30" inputmode="numeric" placeholder="۰ اگر دارویی تجویز نشده"></div>
 <div class="field"><label>نتیجه ویزیت <b style="color:#b84242">*</b></label><select class="control" id="outcome"><option value="">انتخاب کنید</option><option>درمان سرپایی و ترخیص</option><option>تجویز دارو و ترخیص</option><option>ارجاع به مرکز درمانی</option><option>نیاز به پیگیری</option><option>سایر</option></select></div>
+<div class="field"><label>فشار خون <small>(اختیاری)</small></label><input class="control" id="bloodPressure" type="text" inputmode="text" placeholder="مثلاً ۱۲۰/۸۰"></div>
+<div class="field"><label>دمای بدن (°C) <small>(اختیاری)</small></label><input class="control" id="temperature" type="number" inputmode="decimal" step="0.1" min="30" max="45" placeholder="مثلاً ۳۶٫۸"></div>
+<div class="field"><label>ضربان قلب (در دقیقه) <small>(اختیاری)</small></label><input class="control" id="heartRate" type="number" inputmode="numeric" min="20" max="250" placeholder="مثلاً ۷۲"></div>
+<div class="field"><label>درصد اکسیژن خون (SpO₂) <small>(اختیاری)</small></label><input class="control" id="oxygenSaturation" type="number" inputmode="numeric" min="0" max="100" placeholder="مثلاً ۹۸"></div>
 <div class="field full"><label>عکس یا اسکن کارت ویزیت دست‌نویس <b style="color:#b84242">*</b></label><div class="filebox"><input type="file" id="cardFile" accept="image/*,application/pdf" capture="environment"><div class="fname" id="cardFileName">فایلی انتخاب نشده است. عکس واضح و کامل کارت (هر دو بخش دست‌نویس) را بگیرید.</div></div></div>
 <div class="field full"><label>توضیحات منشی (اختیاری)</label><textarea class="control" id="stationNote" placeholder="مثلاً ناخوانا بودن بخشی از کارت"></textarea></div>
 </div>
@@ -338,7 +342,7 @@ details.reject summary{cursor:pointer;font-weight:700;color:#a33333;font-size:13
 'use strict';
 
 // آدرس Web App پروژه GAS پزشک (فایل b_3.js) را اینجا قرار دهید
-const API_URL = 'https://script.google.com/macros/s/AKfycbwshEdCwAAXV7yyc9NW2QNyDyX1Tjjaa-y5q4a2lXZc8jScUyqmiqig5ZiJM1zjMCqhxQ/exec';
+const API_URL = 'https://script.google.com/macros/s/AKfycbw8BhvGjk9mHVDV8TmXl9oxVIuKXyLsI_jNS-2Hg8NpgoZZrD8OsLcoCeANk1GbqPC68Q/exec';
 
 const $ = s => document.querySelector(s);
 
@@ -1123,6 +1127,10 @@ function selectVisit(visitId){
 
   $('#medCount').value=currentVisit.medCount||'';
   $('#outcome').value=currentVisit.outcome||'';
+  $('#bloodPressure').value=currentVisit.bloodPressure||'';
+  $('#temperature').value=currentVisit.temperature||'';
+  $('#heartRate').value=currentVisit.heartRate||'';
+  $('#oxygenSaturation').value=currentVisit.oxygenSaturation||'';
   $('#stationNote').value=(currentVisit.visitStatus===ST_DONE?currentVisit.stationNote:'')||'';
   $('#rejectReason').value='';
   pickedCard=null;
@@ -1264,6 +1272,10 @@ async function runAction(action){
 
     payload.medCount=mc;
     payload.outcome=$('#outcome').value;
+    payload.bloodPressure=$('#bloodPressure').value.trim();
+    payload.temperature=normalizeDigits($('#temperature').value).trim();
+    payload.heartRate=normalizeDigits($('#heartRate').value).trim();
+    payload.oxygenSaturation=normalizeDigits($('#oxygenSaturation').value).trim();
     payload.notes=$('#stationNote').value;
     if(pickedCard) payload.file=pickedCard;
   }
@@ -1292,7 +1304,12 @@ async function runAction(action){
     });
 
     if(action==='finish'){
-      Object.assign(currentVisit,{medCount:String(r.medCount),outcome:r.outcome,cardFileId:r.cardFileId,cardUrl:r.cardUrl});
+      Object.assign(currentVisit,{
+        medCount:String(r.medCount), outcome:r.outcome,
+        bloodPressure:r.bloodPressure, temperature:r.temperature,
+        heartRate:r.heartRate, oxygenSaturation:r.oxygenSaturation,
+        cardFileId:r.cardFileId, cardUrl:r.cardUrl
+      });
       pickedCard=null; $('#cardFile').value='';
       $('#cardFileName').textContent='کارت ثبت شد. در صورت انتخاب فایل جدید، جایگزین می‌شود.';
     }
