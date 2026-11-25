@@ -1,0 +1,1647 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#123b35">
+<title>سامانه ثبت مراجعان | مأموریت پزشکی درآلو</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap');
+:root{--bg:#f3f6f5;--surface:#fff;--ink:#172b27;--muted:#71817c;--line:#e2eae6;--green:#176b55;--green2:#0e4c3d;--mint:#e8f4ef;--gold:#c99a43;--red:#c34242;--shadow:0 12px 35px rgba(19,54,44,.08);--radius:18px}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:'Vazirmatn',Tahoma,sans-serif;font-size:14px}button,input,select,textarea{font:inherit}button{cursor:pointer}.topbar{background:linear-gradient(115deg,#0c332b,#176b55);color:#fff;padding:22px max(22px,calc((100% - 1180px)/2));display:flex;align-items:center;justify-content:space-between;gap:18px;box-shadow:0 8px 24px #103c3022}.brand{display:flex;align-items:center;gap:14px}.brandmark{width:48px;height:48px;border-radius:15px;background:#ffffff1b;display:grid;place-items:center;font-size:25px;border:1px solid #ffffff33}.brand h1{font-size:18px;margin:0 0 3px;font-weight:800}.brand p{margin:0;color:#d0e5dc;font-size:12px}.topmeta{text-align:left;font-size:11px;color:#d5e8e0;line-height:1.9}.wrap{max-width:1180px;margin:28px auto;padding:0 18px 50px}.intro{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin-bottom:20px}.intro h2{font-size:22px;margin:0 0 5px}.intro p{margin:0;color:var(--muted);font-size:13px}.status{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:30px;background:#fff;border:1px solid var(--line);font-size:12px;color:var(--muted);white-space:nowrap}.dot{width:8px;height:8px;border-radius:50%;background:#d5a33f}.dot.online{background:#20a477;box-shadow:0 0 0 4px #20a47720}.layout{display:grid;grid-template-columns: minmax(0,1fr) 280px;gap:20px;align-items:start}.main{min-width:0}.side{position:sticky;top:18px;display:grid;gap:14px}.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;margin-bottom:16px}.cardhead{padding:17px 21px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:12px}.step{width:32px;height:32px;border-radius:11px;background:var(--mint);color:var(--green);display:grid;place-items:center;font-weight:800}.cardhead h3{font-size:15px;margin:0}.cardhead small{display:block;color:var(--muted);font-size:11px;margin-top:2px}.cardbody{padding:21px}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}.field{min-width:0}.field.wide{grid-column:span 2}.field.full{grid-column:1/-1}label{display:block;font-weight:650;font-size:12px;margin:0 0 7px;color:#344a43}.req{color:var(--red);margin-right:3px}.control{width:100%;border:1px solid #dce6e1;background:#fbfdfc;border-radius:11px;padding:11px 12px;outline:none;color:var(--ink);min-height:43px;transition:.2s}.control:focus{border-color:#58a88b;box-shadow:0 0 0 3px #58a88b20;background:#fff}.control::placeholder{color:#a5b1ac}.control[readonly]{background:#f0f4f2;color:#64746e}.hint{font-size:10px;color:#899891;margin-top:5px}.radios{display:flex;gap:8px;flex-wrap:wrap}.radio{display:flex;align-items:center;gap:7px;padding:9px 12px;border:1px solid var(--line);border-radius:10px;background:#fbfdfc;font-size:12px}.radio input{accent-color:var(--green)}textarea.control{min-height:88px;resize:vertical}.filebox{border:1px dashed #b9cec4;border-radius:13px;padding:15px;background:#f8fbf9}.filebox input{width:100%;font-size:12px}.filehint{font-size:11px;color:var(--muted);margin-top:7px}.checkline{display:flex;align-items:flex-start;gap:10px;background:#f5faf7;border:1px solid #dfede5;padding:13px;border-radius:12px;font-size:12px;line-height:1.9}.checkline input{margin-top:5px;accent-color:var(--green)}.actions{display:flex;gap:10px;align-items:center;justify-content:flex-end;padding:18px 21px;border-top:1px solid var(--line);background:#fcfdfc}.btn{border:0;border-radius:11px;padding:11px 18px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:43px}.btn-primary{background:var(--green);color:#fff;box-shadow:0 6px 14px #176b5528}.btn-primary:hover{background:var(--green2)}.btn-secondary{background:#edf3f0;color:#40574e}.btn:disabled{opacity:.55;cursor:not-allowed}.sidecard{background:#fff;border:1px solid var(--line);border-radius:16px;padding:17px;box-shadow:var(--shadow)}.sidecard h4{margin:0 0 12px;font-size:13px}.sidecard p{font-size:11px;color:var(--muted);line-height:2;margin:0}.guide{display:grid;gap:12px}.guideitem{display:flex;gap:10px;align-items:flex-start}.guideicon{width:27px;height:27px;border-radius:9px;background:var(--mint);display:grid;place-items:center;color:var(--green);flex-shrink:0}.guideitem b{display:block;font-size:11px;margin-bottom:2px}.guideitem span{display:block;font-size:10px;color:var(--muted);line-height:1.8}.notice{border-radius:13px;padding:12px 13px;background:#fff8e9;border:1px solid #f0dfb8;color:#806126;font-size:11px;line-height:1.9}.result{display:none;padding:14px 16px;border-radius:13px;margin:0 0 16px;font-size:13px;line-height:1.9}.result.success{display:block;background:#eaf7f0;border:1px solid #bfe4ce;color:#17643f}.result.error{display:block;background:#fff0ef;border:1px solid #f0c5c1;color:#a33333}.result.info{display:block;background:#eef5fb;border:1px solid #cbddeb;color:#315d7c}.result strong{display:block;font-size:14px}.result .pid{font-weight:900;font-size:18px;direction:ltr;display:inline-block;margin:4px 0}.footer{text-align:center;color:#91a099;font-size:10px;padding:14px}.hidden{display:none!important}.section-note{background:#f7faf8;border-radius:10px;padding:10px 12px;color:#708078;font-size:11px;line-height:1.8;margin-bottom:15px}
+@media(max-width:900px){.layout{grid-template-columns:1fr}.side{position:static;grid-template-columns:repeat(2,minmax(0,1fr))}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.topbar{padding:16px}.topmeta{display:none}.wrap{margin:20px auto;padding:0 12px 35px}.intro{align-items:flex-start;flex-direction:column}.intro h2{font-size:19px}.grid{grid-template-columns:1fr}.field.wide{grid-column:span 1}.cardbody{padding:16px}.cardhead{padding:14px 16px}.side{grid-template-columns:1fr}.actions{padding:14px;flex-direction:column-reverse}.actions .btn{width:100%}}
+.lookuprow{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px}.lookupresult{margin-top:16px}.lookupresult:empty{display:none}.lk-banner{border-radius:13px;padding:13px 15px;font-size:13px;line-height:1.9}.lk-banner.ok{background:#eaf7f0;border:1px solid #bfe4ce;color:#17643f}.lk-banner.found{background:#fff8e9;border:1px solid #f0dfb8;color:#806126}.lk-banner.err{background:#fff0ef;border:1px solid #f0c5c1;color:#a33333}.lk-info{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:14px 0}.lk-info div{background:#f7faf8;border:1px solid var(--line);border-radius:11px;padding:9px 11px}.lk-info span{display:block;font-size:10px;color:var(--muted);margin-bottom:3px}.lk-info b{font-size:12px}.lk-steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}.lk-step{border:1px solid var(--line);border-radius:12px;padding:11px;background:#fbfdfc;text-align:center}.lk-step i{display:grid;place-items:center;width:28px;height:28px;margin:0 auto 7px;border-radius:50%;background:#edf1ef;color:#9aa8a2;font-style:normal;font-weight:800}.lk-step.done{border-color:#bfe4ce;background:#f2faf6}.lk-step.done i{background:var(--green);color:#fff}.lk-step b{display:block;font-size:11px;margin-bottom:3px}.lk-step small{font-size:10px;color:var(--muted)}.lk-stage{margin-top:12px;font-weight:700;font-size:12px;color:#344a43}
+@media(max-width:900px){.lk-steps{grid-template-columns:repeat(2,minmax(0,1fr))}.lk-info{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.lookuprow{grid-template-columns:1fr}.lk-info{grid-template-columns:1fr}}
+.lk-top{display:grid;grid-template-columns:118px minmax(0,1fr);gap:16px;align-items:start;margin:14px 0}.lk-top .lk-info{margin:0}.lk-photo{width:118px;height:146px;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#f1f5f3;display:grid;place-items:center;color:var(--muted);font-size:11px;text-align:center;padding:6px}.lk-photo img{width:100%;height:100%;object-fit:cover;display:block}.lk-actions{margin-top:14px;display:flex;gap:10px;flex-wrap:wrap}
+@media(max-width:600px){.lk-top{grid-template-columns:1fr}.lk-photo{margin:0 auto}}
+
+
+/* ===============================
+   جدول ثبت نسخه و داروها
+=============================== */
+
+#daralooPrintCard .print-meds {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  table-layout: fixed !important;
+  font-size: 7.5pt !important;
+  margin-top: 1mm !important;
+}
+
+/* عرض اختصاصی ستون‌ها */
+#daralooPrintCard .print-meds th:nth-child(1),
+#daralooPrintCard .print-meds td:nth-child(1) {
+  width: 7% !important;
+}
+
+#daralooPrintCard .print-meds th:nth-child(2),
+#daralooPrintCard .print-meds td:nth-child(2) {
+  width: 22% !important;
+}
+
+#daralooPrintCard .print-meds th:nth-child(3),
+#daralooPrintCard .print-meds td:nth-child(3) {
+  width: 14% !important;
+}
+
+#daralooPrintCard .print-meds th:nth-child(4),
+#daralooPrintCard .print-meds td:nth-child(4) {
+  width: 21% !important;
+}
+
+#daralooPrintCard .print-meds th:nth-child(5),
+#daralooPrintCard .print-meds td:nth-child(5) {
+  width: 14% !important;
+}
+
+#daralooPrintCard .print-meds th:nth-child(6),
+#daralooPrintCard .print-meds td:nth-child(6) {
+  width: 22% !important;
+}
+
+/* سرستون‌ها */
+#daralooPrintCard .print-meds th {
+  background: #edf3fa !important;
+  color: #203b65 !important;
+  font-weight: 800 !important;
+  height: 9mm !important;
+  font-size: 7.5pt !important;
+  padding: 1mm !important;
+}
+
+/* سلول‌ها */
+#daralooPrintCard .print-meds th,
+#daralooPrintCard .print-meds td {
+  border: 1px solid #aebdce !important;
+  text-align: center !important;
+  vertical-align: middle !important;
+  overflow-wrap: anywhere !important;
+}
+
+/* ردیف شماره */
+#daralooPrintCard .print-meds td:first-child {
+  font-size: 7pt !important;
+  font-weight: bold !important;
+  color: #52647a !important;
+  padding: .5mm !important;
+}
+
+/* فضای دست‌نویس داروها */
+#daralooPrintCard .print-meds td {
+  height: 14mm !important;
+  padding: 1mm !important;
+}
+.brandmark {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.brandmark img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <div class="brandmark">
+      <img src="images/logo2.png" alt="Daraloo Logo">
+    </div>
+    <div>
+      <h1>سامانه یکپارچه سلامت جهادی مجتمع مس درآلو</h1>
+      <p>DARALOO INTEGRATED COMMUNITY HEALTHCARE SYSTEM</p>
+    </div>
+  </div>
+  <div class="topmeta">
+    طراحی و توسعه:<br>
+    واحد تحقیق و توسعه مجتمع مس درآلو
+  </div>
+</header>
+<main class="wrap">
+  <div class="intro"><div><h2>تشکیل پرونده مراجعه‌کننده</h2><p>اطلاعات هویتی، اطلاعات پذیرش و سوابق اظهارشده توسط مراجعه‌کننده را ثبت کنید.</p></div><div class="status"><span class="dot" id="connectionDot"></span><span id="connectionText">در حال بررسی ارتباط با سامانه...</span></div></div>
+  <div id="result" class="result" role="status" aria-live="polite"></div>
+  <div class="layout">
+    <div class="main">
+      <section class="card" id="lookupCard">
+        <div class="cardhead"><div class="step">۰</div><div><h3>استعلام سابقه مراجعه</h3><small>پیش از تشکیل پرونده، کد ملی را استعلام کنید تا مشخص شود مراجعه‌کننده قبلاً پرونده داشته است یا نه</small></div></div>
+        <div class="cardbody">
+          <div class="lookuprow"><input class="control" id="lookupCode" inputmode="numeric" maxlength="10" placeholder="کد ملی ۱۰ رقمی مراجعه‌کننده" autocomplete="off"><button type="button" class="btn btn-primary" id="lookupBtn">استعلام <span>⌕</span></button></div>
+          <div class="hint">در صورت نبودن پرونده، فرم فعال می‌شود. تشکیل پرونده مجدد فقط در صورت رد شدن آخرین ویزیت توسط پزشک امکان‌پذیر است.</div>
+          <div class="lookupresult" id="lookupResult" aria-live="polite"></div>
+        </div>
+      </section>
+    <form id="patientForm" class="hidden" autocomplete="off">
+      <section class="card">
+        <div class="cardhead"><div class="step">۱</div><div><h3>اطلاعات شناسایی مراجعه‌کننده</h3><small>اطلاعات هویتی و راه‌های ارتباطی</small></div></div>
+        <div class="cardbody"><div class="grid">
+          <div class="field"><label>نام <span class="req">*</span></label><input class="control" name="firstName" required maxlength="60" placeholder="نام مراجعه‌کننده"></div>
+          <div class="field"><label>نام خانوادگی <span class="req">*</span></label><input class="control" name="lastName" required maxlength="80" placeholder="نام خانوادگی"></div>
+          <div class="field"><label>نام پدر <span class="req">*</span></label><input class="control" name="fatherName" required maxlength="60" placeholder="نام پدر"></div>
+          <div class="field"><label>سن <span class="req">*</span></label><input class="control" name="age" type="number" min="0" max="120" required placeholder="سن به سال"></div>
+          <div class="field"><label>جنسیت <span class="req">*</span></label><select class="control" name="gender" id="gender" required><option value="">انتخاب کنید</option><option>مرد</option><option>زن</option></select></div>
+          <div class="field"><label>شماره موبایل <span class="req">*</span></label><input class="control" name="mobile" inputmode="numeric" maxlength="11" required placeholder="0912xxxxxxx"></div>
+          <div class="field"><label>کد ملی <span class="req">*</span></label><input class="control" name="nationalCode" inputmode="numeric" maxlength="10" required placeholder="۱۰ رقم"></div>
+          <div class="field"><label>محل سکونت <span class="req">*</span></label><select class="control" name="residence" id="residence" required><option value="">در حال دریافت گزینه‌ها...</option></select></div>
+          <div class="field hidden" id="residenceOtherWrap"><label>سایر محل سکونت <span class="req">*</span></label><input class="control" name="residenceOther" id="residenceOther" placeholder="نام محل سکونت"></div>
+        </div></div>
+      </section>
+      <section class="card">
+        <div class="cardhead"><div class="step">۲</div><div><h3>اطلاعات پذیرش و خدمت درخواستی</h3><small>توسط اپراتور پذیرش تکمیل شود</small></div></div>
+        <div class="cardbody"><div class="grid">
+          <div class="field"><label>خدمت پزشکی <span class="req">*</span></label><select class="control" name="service" id="service" required><option value="">در حال دریافت خدمات...</option></select></div>
+          <div class="field hidden" id="serviceOtherWrap"><label>شرح سایر خدمات <span class="req">*</span></label><input class="control" name="serviceOther" id="serviceOther" placeholder="نوع خدمت موردنظر"></div>
+          <div class="field"><label>مدت بروز علائم</label><input class="control" name="symptomDuration" placeholder="مثلاً از دو روز قبل"></div>
+          <div class="field full"><label>علت مراجعه / مشکل اعلام‌شده</label><textarea class="control" name="complaint" placeholder="شرح کوتاه علت مراجعه با بیان خود مراجعه‌کننده"></textarea></div>
+        </div></div>
+      </section>
+      <section class="card">
+        <div class="cardhead"><div class="step">۳</div><div><h3>اطلاعات نوبت و محل مراجعه</h3><small>توسط اپراتور پذیرش تکمیل شود؛ معاینه و نسخه را پزشک در فرم خودش ثبت می‌کند</small></div></div>
+        <div class="cardbody"><div class="grid">
+          <div class="field"><label>زمان تخمینی مراجعه</label><input class="control" id="visitAtDisplay" readonly placeholder="پس از ثبت نوبت محاسبه می‌شود"><div class="hint">زمان بر اساس پزشکان فعال و نوبت‌های قبلی همان خدمت تعیین می‌شود.</div></div>
+          <div class="field"><label>محل مراجعه / ویزیت <span class="req">*</span></label><select class="control" id="locationSelect"><option value="">در حال دریافت فهرست...</option></select><input class="control hidden" id="locationManual" placeholder="محل مراجعه را دستی وارد کنید" style="margin-top:8px"><button type="button" class="btn btn-secondary" id="toggleLocation" style="margin-top:8px;min-height:36px;padding:7px 12px">＋ ثبت محل جدید به‌صورت دستی</button></div>
+          <div class="field"><label>پزشک مسئول</label><input class="control" id="doctorDisplay" readonly placeholder="به‌صورت خودکار تخصیص می‌یابد"><div class="hint" id="doctorHint">سامانه پزشک آزاد همان خدمت را به‌صورت خودکار انتخاب می‌کند.</div></div><div class="field"><label>مدت انتظار تخمینی</label><input class="control" id="waitingDisplay" readonly placeholder="پس از ثبت نوبت محاسبه می‌شود"></div><div class="field"><label>مدت ویزیت پزشک</label><input class="control" id="durationDisplay" readonly placeholder="از شیت پزشکان"></div>
+        </div></div>
+      </section>
+      <section class="card">
+        <div class="cardhead"><div class="step">۴</div><div><h3>سوابق پزشکی اظهارشده</h3><small>این بخش صرفاً بر اساس اظهارات مراجعه‌کننده تکمیل می‌شود؛ تشخیص پزشکی در این فرم انجام نمی‌شود.</small></div></div>
+        <div class="cardbody"><div class="grid">
+          <div class="field"><label>بیماری خاص</label><select class="control yesno" name="specialDisease"><option value="">انتخاب کنید</option><option>بله</option><option>خیر</option><option>نامشخص</option></select></div>
+          <div class="field wide hidden" id="specialDiseaseDetailsWrap"><label>شرح بیماری خاص <span class="req">*</span></label><input class="control" name="specialDiseaseDetails" placeholder="نام بیماری یا توضیحات"></div>
+          <div class="field full"><label>سابقه بیماری</label><textarea class="control" name="medicalHistory" placeholder="سابقه بیماری‌های قبلی، در صورت اعلام"></textarea></div>
+          <div class="field"><label>حساسیت دارویی</label><select class="control yesno" name="drugAllergy"><option value="">انتخاب کنید</option><option>بله</option><option>خیر</option><option>نامشخص</option></select></div>
+          <div class="field wide hidden" id="allergyDetailsWrap"><label>شرح حساسیت دارویی <span class="req">*</span></label><input class="control" name="allergyDetails" placeholder="نام دارو یا واکنش اعلام‌شده"></div>
+          <div class="field full"><label>داروهای مصرفی فعلی</label><textarea class="control" name="currentMedications" placeholder="نام داروهای مصرفی فعلی، در صورت اعلام"></textarea></div>
+          <div class="field"><label>سابقه جراحی</label><select class="control yesno" name="hasSurgery"><option value="">انتخاب کنید</option><option>بله</option><option>خیر</option><option>نامشخص</option></select></div>
+          <div class="field wide hidden" id="surgeryDetailsWrap"><label>شرح سابقه جراحی <span class="req">*</span></label><input class="control" name="surgeryDetails" placeholder="نوع و زمان تقریبی جراحی"></div>
+          <div class="field full"><label>توضیحات پزشکی تکمیلی</label><textarea class="control" name="medicalNotes" placeholder="اطلاعات تکمیلی اظهارشده توسط مراجعه‌کننده"></textarea></div>
+        </div></div>
+      </section>
+      <section class="card">
+        <div class="cardhead"><div class="step">۵</div><div><h3>مدارک و تصویر مراجعه‌کننده</h3><small>بارگذاری اختیاری تصویر یا مدرک پرونده</small></div></div>
+        <div class="cardbody"><div class="filebox"><input type="file" id="patientFile" accept=".jpg,.jpeg,.png,.webp,.gif,.tif,.tiff,.pdf"><div class="filehint" id="fileHint">فرمت‌های مجاز: JPG، PNG، WEBP، GIF، TIFF و PDF · حداکثر ۵ مگابایت</div></div></div>
+      </section>
+     
+<section class="card">
+  <div class="cardhead">
+    <div class="step">۶</div>
+    <div>
+      <h3>ثبت اطلاعات اپراتور</h3>
+      <small>شناسه اپراتور فعال در سامانه</small>
+    </div>
+  </div>
+
+  <div class="cardbody">
+    <input type="hidden" name="operatorCode" value="AD-007">
+
+    <div class="grid">
+      <div class="field wide">
+        <label>شناسه درخواست</label>
+        <input
+          class="control"
+          id="requestIdView"
+          readonly
+          dir="ltr"
+        >
+        <div class="hint">
+          به‌صورت خودکار تولید می‌شود تا از ثبت تکراری همان درخواست جلوگیری شود.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cardbody" style="padding-top:0">
+    <label class="checkline">
+      <input type="checkbox" id="consent" required>
+      <span>
+        مراجعه‌کننده رضایت خود را برای ثبت و نگهداری اطلاعات و مدارک در پرونده پزشکی اعلام کرده است.
+        <b class="req">*</b>
+      </span>
+    </label>
+  </div>
+
+  <div class="actions">
+    <button type="reset" class="btn btn-secondary" id="resetBtn">
+      پاک کردن فرم
+    </button>
+    <button type="submit" class="btn btn-primary" id="submitBtn">
+      ثبت پرونده مراجعه‌کننده <span>←</span>
+    </button>
+  </div>
+</section>
+
+      <div class="footer">DARALOO INTEGRATED COMMUNITY HEALTHCARE SYSTEM · سامانه ثبت اطلاعات مراجعان</div>
+    </form>
+    </div>
+    <aside class="side">
+      <div class="sidecard"><h4>راهنمای اپراتور</h4><div class="guide">
+        <div class="guideitem"><div class="guideicon">۱</div><div><b>اطلاعات هویتی</b><span>کد ملی و شماره همراه را با دقت وارد کنید.</span></div></div>
+        <div class="guideitem"><div class="guideicon">۲</div><div><b>سوابق اظهارشده</b><span>اطلاعات این بخش تشخیص پزشک نیست و فقط اظهارات مراجعه‌کننده است.</span></div></div>
+        <div class="guideitem"><div class="guideicon">۳</div><div><b>شناسه اپراتور</b><span>شناسه باید در شیت اپراتورها تعریف شده و وضعیت آن فعال باشد.</span></div></div>
+        <div class="guideitem"><div class="guideicon">۴</div><div><b>ثبت نهایی</b><span>پس از ثبت موفق، شناسه پرونده را برای مراجعه‌کننده نگهداری کنید.</span></div></div>
+      </div></div>
+      <div class="notice"><b>محدوده دسترسی این پنل</b><br>این فرم فقط برای تشکیل پرونده و ثبت اطلاعات اولیه است. تشخیص، اقدامات درمانی و نسخه دارویی باید توسط پزشک و در پنل مستقل پزشک ثبت شوند.</div>
+      <div class="sidecard"><h4>اتصال به پایگاه داده</h4><p>اطلاعات در DATABse ذخیره و پوشه اختصاصی پرونده در SERVER ایجاد می‌شود. برای کارکرد صحیح، نشانی Web App باید در تنظیمات فایل وارد شود.</p></div>
+    </aside>
+  </div>
+</main>
+<script>
+'use strict';
+
+// نشانی انتشار Web App را در این قسمت قرار دهید؛ باید به /exec ختم شود.
+const API_URL = 'https://script.google.com/macros/s/AKfycbz2cUws3uKWOPlpr-Py4OIZmZgE_W3uEomqEaJVPyzFEg19iprch59gE1TgRAgWP6mQ/exec';
+const MAX_FILE_SIZE = 5 * 1024 * 1024;
+const $ = (s) => document.querySelector(s);
+const form = $('#patientForm');
+const resultBox = $('#result');
+let configLoaded = false;
+
+function makeRequestId(){
+  const bytes = new Uint8Array(16);
+  if(window.crypto && crypto.getRandomValues) crypto.getRandomValues(bytes);
+  else for(let i=0;i<bytes.length;i++) bytes[i]=Math.floor(Math.random()*256);
+  return 'REQ_' + Array.from(bytes).map(b=>b.toString(16).padStart(2,'0')).join('').toUpperCase();
+}
+function setNewRequestId(){ $('#requestIdView').value = makeRequestId(); }
+function showResult(type,title,message,patientId){
+  resultBox.className = 'result ' + type;
+  resultBox.innerHTML = '';
+  const strong=document.createElement('strong'); strong.textContent=title; resultBox.appendChild(strong);
+  const p=document.createElement('div'); p.textContent=message || ''; resultBox.appendChild(p);
+  if(patientId){ const id=document.createElement('div'); id.className='pid'; id.textContent=patientId; resultBox.appendChild(id); }
+  resultBox.scrollIntoView({behavior:'smooth',block:'center'});
+}
+function setConnection(ok,text){ $('#connectionDot').classList.toggle('online',!!ok); $('#connectionText').textContent=text; }
+function jsonp(url,timeout=12000,params){
+  return new Promise((resolve,reject)=>{
+    const cb='gasCallback_'+Date.now()+'_'+Math.floor(Math.random()*100000);
+    const script=document.createElement('script'); let done=false;
+    const timer=setTimeout(()=>finish(new Error('مهلت دریافت اطلاعات از سامانه تمام شد.')),timeout);
+    function finish(err,data){ if(done)return; done=true; clearTimeout(timer); delete window[cb]; script.remove(); err?reject(err):resolve(data); }
+    window[cb]=(data)=>finish(null,data);
+    script.onerror=()=>finish(new Error('ارتباط با Web App برقرار نشد. نشانی انتشار را بررسی کنید.'));
+    const query=new URLSearchParams(Object.assign({action:'getConfig'},params||{},{callback:cb,_:Date.now()}));
+    script.src=url+(url.includes('?')?'&':'?')+query.toString();
+    document.head.appendChild(script);
+  });
+}
+function fillSelect(select,items,placeholder){
+  select.innerHTML='';
+  const first=document.createElement('option'); first.value=''; first.textContent=placeholder; select.appendChild(first);
+  (items||[]).forEach(value=>{const o=document.createElement('option');o.value=value;o.textContent=value;select.appendChild(o);});
+}
+async function loadConfig(){
+  if(!API_URL || API_URL.includes('PASTE_YOUR')){ setConnection(false,'نشانی Web App تنظیم نشده'); fallbackConfig(); return; }
+  try{
+    const response=await jsonp(API_URL);
+    if(!response || !response.success || !response.data) throw new Error(response?.message || 'پاسخ تنظیمات نامعتبر است.');
+    fillSelect($('#gender'),response.data.genders,['مرد','زن']);
+    fillSelect($('#residence'),response.data.residences,'انتخاب محل سکونت');
+    fillSelect($('#service'),response.data.services,'انتخاب خدمت پزشکی');
+    fillVisitConfig(response.data);
+    configLoaded=true; setConnection(true,'ارتباط با سامانه برقرار است');
+  }catch(err){ fallbackConfig(); setConnection(false,'عدم دریافت تنظیمات از سرور'); showResult('error','خطا در دریافت تنظیمات',err.message+' گزینه‌های پیش‌فرض نمایش داده شده‌اند.'); }
+}
+function fallbackConfig(){
+  fillVisitConfig({doctors:[],visitLocations:[]});
+  fillSelect($('#gender'),['مرد','زن'],'انتخاب جنسیت');
+  fillSelect($('#residence'),['درآلو','سرمشک','جواران','گدار','سایر'],'انتخاب محل سکونت');
+  fillSelect($('#service'),['ویزیت پزشک عمومی','خدمات تخصصی','دندانپزشکی','بینایی‌سنجی','مشاوره و روان‌شناسی','مامایی و سلامت بانوان','خدمات پرستاری','خدمات دارویی','سایر'],'انتخاب خدمت پزشکی');
+}
+function toggleOther(selectName,wrapId,inputId){
+  const active=form.elements[selectName].value==='سایر';
+  $(wrapId).classList.toggle('hidden',!active); $(inputId).required=active;
+  if(!active) $(inputId).value='';
+}
+function toggleConditional(selectName,wrapId,inputName){
+  const active=form.elements[selectName].value==='بله';
+  $(wrapId).classList.toggle('hidden',!active); form.elements[inputName].required=active;
+  if(!active) form.elements[inputName].value='';
+}
+$('#residence').addEventListener('change',()=>toggleOther('residence','#residenceOtherWrap','#residenceOther'));
+$('#service').addEventListener('change',()=>toggleOther('service','#serviceOtherWrap','#serviceOther'));
+form.querySelectorAll('.yesno').forEach(el=>el.addEventListener('change',()=>{
+  const map={specialDisease:['#specialDiseaseDetailsWrap','specialDiseaseDetails'],drugAllergy:['#allergyDetailsWrap','allergyDetails'],hasSurgery:['#surgeryDetailsWrap','surgeryDetails']};
+  const item=map[el.name]; toggleConditional(el.name,item[0],item[1]);
+}));
+$('#patientFile').addEventListener('change',()=>{
+  const file=$('#patientFile').files[0];
+  if(!file){$('#fileHint').textContent='فرمت‌های مجاز: JPG، PNG، WEBP، GIF، TIFF و PDF · حداکثر ۵ مگابایت';return;}
+  $('#fileHint').textContent=file.name+' · '+(file.size/1024/1024).toFixed(2)+' مگابایت';
+});
+function normalizeDigits(v){return String(v||'').replace(/[۰-۹]/g,d=>'۰۱۲۳۴۵۶۷۸۹'.indexOf(d)).replace(/[٠-٩]/g,d=>'٠١٢٣٤٥٦٧٨٩'.indexOf(d));}
+function readFileAsDataUrl(file){return new Promise((resolve,reject)=>{const reader=new FileReader();reader.onload=()=>resolve(reader.result);reader.onerror=()=>reject(new Error('خواندن فایل انتخاب‌شده ناموفق بود.'));reader.readAsDataURL(file);});}
+function validateLocal(){
+  const national=normalizeDigits(form.elements.nationalCode.value).trim();
+  const mobile=normalizeDigits(form.elements.mobile.value).trim();
+  form.elements.nationalCode.value=national; form.elements.mobile.value=mobile;
+  if(!/^\d{10}$/.test(national)) throw new Error('کد ملی باید دقیقاً ۱۰ رقم باشد.');
+  if(!/^09\d{9}$/.test(mobile)) throw new Error('شماره موبایل باید با 09 شروع شود و ۱۱ رقم باشد.');
+  const file=$('#patientFile').files[0];
+  if(file){
+    const ext=(file.name.split('.').pop()||'').toLowerCase();
+    if(!['jpg','jpeg','png','webp','gif','tif','tiff','pdf'].includes(ext)) throw new Error('فرمت فایل انتخاب‌شده مجاز نیست.');
+    if(file.size>MAX_FILE_SIZE) throw new Error('حجم فایل نباید بیشتر از ۵ مگابایت باشد.');
+  }
+  collectVisit();
+  if(!$('#consent').checked) throw new Error('ثبت رضایت مراجعه‌کننده الزامی است.');
+}
+async function submitRegistration(data){
+  // درخواست با فرم-urlencoded ارسال می‌شود تا preflight پیچیده CORS ایجاد نشود.
+  const body=new URLSearchParams();
+  Object.entries(data).forEach(([key,value])=>body.append(key,String(value??'')));
+  const response=await fetch(API_URL,{method:'POST',body,redirect:'follow'});
+  const text=await response.text();
+  try{return JSON.parse(text);}catch(_){throw new Error('پاسخ سرور قابل خواندن نیست. احتمالاً محدودیت CORS یا نشانی اشتباه Web App وجود دارد.');}
+}
+function formatVisitDate(value){if(!value)return '—';const d=new Date(value);return isNaN(d)?value:d.toLocaleString('fa-IR',{dateStyle:'short',timeStyle:'short'});}
+form.addEventListener('submit',async(event)=>{
+  event.preventDefault(); resultBox.className='result';
+  const btn=$('#submitBtn');
+  try{
+    if(!API_URL || API_URL.includes('PASTE_YOUR')) throw new Error('ابتدا نشانی Web App را در متغیر API_URL وارد کنید.');
+    if(!lookedUpCode || normalizeDigits(form.elements.nationalCode.value).trim()!==lookedUpCode) throw new Error('ابتدا کد ملی را در بخش «استعلام سابقه مراجعه» استعلام کنید.');
+    if(!form.reportValidity()) return;
+    validateLocal();
+    btn.disabled=true; btn.textContent='در حال ثبت پرونده...';
+    const fd=new FormData(form); const data={};
+    for(const [key,value] of fd.entries()) if(typeof value==='string') data[key]=value.trim();
+    data.operatorCode=(data.operatorCode||'').toUpperCase();
+    data.requestId=$('#requestIdView').value;
+    data.consent=$('#consent').checked?'yes':'';
+    Object.assign(data,collectVisit());
+    const file=$('#patientFile').files[0];
+    if(file){data.fileData=await readFileAsDataUrl(file);data.fileName=file.name;data.fileMime=file.type||'';data.fileSize=file.size;}
+    const answer=await submitRegistration(data);
+    if(answer && answer.success){
+      const extra=answer.visitId?(' نوبت '+(answer.queueNumber||'')+' برای '+(answer.service||data.service)+' ثبت شد؛ پزشک: '+(answer.doctorName||'')+'؛ زمان مراجعه: '+formatVisitDate(answer.visitAt)+'؛ شناسه برگه: '+answer.visitId+'.'):'';
+      rememberForPrint(data,answer);
+      $('#visitAtDisplay').value=formatVisitDate(answer.visitAt); $('#doctorDisplay').value=answer.doctorName||''; $('#waitingDisplay').value=(answer.waitingMinutes||0)+' دقیقه'; $('#durationDisplay').value=(answer.visitDuration||15)+' دقیقه';
+      showResult(answer.visitWarning?'info':'success',answer.duplicateRequest?'این درخواست قبلاً ثبت شده است':'پرونده با موفقیت تشکیل شد',(answer.message||'اطلاعات مراجعه‌کننده ذخیره شد.')+extra+(answer.visitWarning?(' '+answer.visitWarning):''),answer.patientId);
+      addPrintButton();
+      form.reset(); setNewRequestId(); resetLookup(); resetVisitUi();
+      ['#residenceOtherWrap','#serviceOtherWrap','#specialDiseaseDetailsWrap','#allergyDetailsWrap','#surgeryDetailsWrap'].forEach(s=>$(s).classList.add('hidden'));
+      $('#fileHint').textContent='فرمت‌های مجاز: JPG، PNG، WEBP، GIF، TIFF و PDF · حداکثر ۵ مگابایت';
+    }else{
+      const msg=answer?.message||'ثبت پرونده انجام نشد.';
+      if(answer?.code==='DUPLICATE_PATIENT') showResult('error','برای این کد ملی پرونده وجود دارد',msg,answer.patientId);
+      else showResult('error','ثبت پرونده ناموفق بود',msg);
+    }
+  }catch(err){showResult('error','خطا در ثبت اطلاعات',err.message||'خطای نامشخص');}
+  finally{btn.disabled=false;btn.innerHTML='ثبت پرونده مراجعه‌کننده <span>←</span>';}
+});
+$('#resetBtn').addEventListener('click',()=>{setTimeout(()=>{resetLookup();resetVisitUi();setNewRequestId();['#residenceOtherWrap','#serviceOtherWrap','#specialDiseaseDetailsWrap','#allergyDetailsWrap','#surgeryDetailsWrap'].forEach(s=>$(s).classList.add('hidden'));resultBox.className='result';},0);});
+
+
+
+/* =====================================================
+   چاپ برگه مراجعه (A4) - همان قالب فرم ثبت نوبت و ویزیت
+   پس از ثبت موفق پرونده فعال می‌شود.
+===================================================== */
+
+let currentPatient=null;
+let currentVisit=null;
+
+function currentDoctor(){
+  const v=currentVisit||{};
+  return {code:v.doctorCode||'',name:v.doctorName||'',service:v.doctorService||''};
+}
+
+/* =====================================================
+   چاپ فرم فیزیکی و دست‌نویس پزشک - یک صفحه A4
+   فقط مربوط به دکمه چاپ صفحه فعلی است.
+   هیچ تغییری در PDF ذخیره‌شده در SERVER ندارد.
+===================================================== */
+
+function addPrintStyles() {
+
+  if (document.getElementById('daralooPrintStyles')) return;
+
+  const style = document.createElement('style');
+  style.id = 'daralooPrintStyles';
+
+  style.textContent = `
+
+    #daralooPrintCard {
+      display: none;
+    }
+
+    @media print {
+
+      @page {
+        size: A4 portrait;
+        margin: 5mm;
+      }
+
+      html, body {
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        background: #fff !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+
+      body * {
+        visibility: hidden !important;
+      }
+
+      #daralooPrintCard,
+      #daralooPrintCard * {
+        visibility: visible !important;
+      }
+
+      #daralooPrintCard {
+        display: block !important;
+        position: absolute !important;
+        top: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        height: 287mm !important;
+        max-height: 287mm !important;
+        overflow: hidden !important;
+        box-sizing: border-box !important;
+        padding: 3mm !important;
+        margin: 0 !important;
+        border: 1px solid #9aaabd !important;
+        background: #fff !important;
+        color: #17263a !important;
+        font-family: Tahoma, Arial, sans-serif !important;
+        direction: rtl !important;
+        font-size: 8pt !important;
+      }
+
+      #daralooPrintCard * {
+        box-sizing: border-box !important;
+      }
+
+      /* ===============================
+         سربرگ
+      =============================== */
+
+      #daralooPrintCard .print-brand {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        gap: 3mm !important;
+        border-bottom: 2px solid #203b65 !important;
+        padding-bottom: 1.5mm !important;
+        margin-bottom: 1.5mm !important;
+      }
+
+      #daralooPrintCard .print-brand-info {
+        flex: 1 !important;
+        text-align: center !important;
+      }
+
+      #daralooPrintCard .print-logo {
+        display: block !important;
+        width: 16mm !important;
+        height: 16mm !important;
+        object-fit: contain !important;
+        margin: 0 auto 1mm !important;
+      }
+
+      #daralooPrintCard .print-brand h1 {
+        font-size: 12pt !important;
+        margin: 0 0 1mm !important;
+        color: #203b65 !important;
+      }
+
+      #daralooPrintCard .print-brand p {
+        font-size: 8pt !important;
+        margin: 0 !important;
+        color: #65758a !important;
+      }
+
+      #daralooPrintCard .print-photo {
+        width: 20mm !important;
+        height: 23mm !important;
+        object-fit: cover !important;
+        border: 1px solid #aab8c8 !important;
+        border-radius: 1mm !important;
+        flex-shrink: 0 !important;
+      }
+
+      #daralooPrintCard .print-photo-empty {
+        width: 20mm !important;
+        height: 23mm !important;
+        border: 1px dashed #aab8c8 !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        font-size: 6pt !important;
+        color: #8996a6 !important;
+        flex-shrink: 0 !important;
+      }
+
+      #daralooPrintCard .print-stamp {
+        font-size: 7pt !important;
+        text-align: left !important;
+        color: #65758a !important;
+        line-height: 1.6 !important;
+      }
+
+      /* مهر نوبت */
+
+      #daralooPrintCard .queue-stamp {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        min-width: 35mm !important;
+        padding: 2mm 4mm !important;
+        background: #edf8f2 !important;
+        border: 0.4mm solid #9fd1b8 !important;
+        border-right: 1.5mm solid #16845b !important;
+        border-radius: 2mm !important;
+        color: #155b49 !important;
+        text-align: center !important;
+      }
+
+      #daralooPrintCard .queue-stamp .queue-label {
+        font-size: 8pt !important;
+        font-weight: 700 !important;
+        color: #3f7a62 !important;
+      }
+
+      #daralooPrintCard .queue-stamp .queue-service {
+        font-size: 7.5pt !important;
+        font-weight: 800 !important;
+        margin-top: 1mm !important;
+        color: #155b49 !important;
+      }
+
+      #daralooPrintCard .queue-stamp .queue-deadline {
+        font-size: 6.5pt !important;
+        margin-top: .5mm !important;
+        color: #3f7a62 !important;
+      }
+
+      #daralooPrintCard .queue-stamp .queue-number {
+        font-size: 30pt !important;
+        font-weight: 900 !important;
+        line-height: 1.05 !important;
+        color: #0f6b49 !important;
+        font-variant-numeric: tabular-nums !important;
+      }
+
+      /* ===============================
+         عنوان برگه
+      =============================== */
+
+      #daralooPrintCard .print-title {
+        text-align: center !important;
+        font-size: 10pt !important;
+        font-weight: 900 !important;
+        margin: 1.5mm 0 !important;
+        padding: 1mm !important;
+        color: #203b65 !important;
+        border-bottom: 1px solid #dce4ed !important;
+      }
+
+      /* ===============================
+         بخش‌های عمومی
+      =============================== */
+
+      #daralooPrintCard .print-section {
+        margin: 0 0 1.5mm !important;
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+      }
+
+      #daralooPrintCard .print-section h3 {
+        font-size: 7.5pt !important;
+        margin: 0 0 .7mm !important;
+        padding: 1mm 1.5mm !important;
+        background: #edf3fa !important;
+        border-right: 2px solid #2e68a8 !important;
+        color: #203b65 !important;
+      }
+
+      #daralooPrintCard .print-grid {
+        display: grid !important;
+        grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+        gap: .7mm !important;
+      }
+
+      #daralooPrintCard .print-cell {
+        border: 1px solid #dce4ed !important;
+        padding: .8mm 1.2mm !important;
+        min-height: 7mm !important;
+        overflow: hidden !important;
+      }
+
+      #daralooPrintCard .print-cell span {
+        display: block !important;
+        font-size: 6pt !important;
+        color: #718096 !important;
+        margin-bottom: .3mm !important;
+      }
+
+      #daralooPrintCard .print-cell b {
+        display: block !important;
+        font-size: 7pt !important;
+        font-weight: 800 !important;
+        overflow-wrap: anywhere !important;
+      }
+
+      /* ===============================
+         کادرهای نوشتاری
+      =============================== */
+
+      #daralooPrintCard .print-writing {
+        border: 1px solid #aebdce !important;
+        border-radius: 1mm !important;
+        margin-bottom: 1mm !important;
+        padding: 1mm 1.5mm !important;
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+      }
+
+      #daralooPrintCard .print-writing-title {
+        font-size: 7pt !important;
+        font-weight: bold !important;
+        color: #344b68 !important;
+        margin-bottom: .5mm !important;
+      }
+
+      #daralooPrintCard .print-writing-space {
+        width: 100% !important;
+        background-image: repeating-linear-gradient(
+          to bottom,
+          transparent 0,
+          transparent 6mm,
+          #dce3eb 6.1mm,
+          transparent 6.3mm
+        ) !important;
+      }
+
+      /* شرح مختصر */
+
+      #daralooPrintCard .space-description {
+        height: 12mm !important;
+      }
+
+      /* تشخیص پزشکی */
+
+      #daralooPrintCard .space-diagnosis {
+        height: 9mm !important;
+      }
+
+      /* درمان و توصیه */
+
+      #daralooPrintCard .space-treatment {
+        height: 9mm !important;
+      }
+
+      /* یادداشت */
+
+      #daralooPrintCard .space-notes {
+        height: 7mm !important;
+      }
+
+      /* ===============================
+         سابقه بیماری، دارویی و آلرژی
+         دو ستون در هر ردیف
+      =============================== */
+
+      #daralooPrintCard .print-history-row {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 1.5mm !important;
+        margin-bottom: 1mm !important;
+      }
+
+      #daralooPrintCard .print-history-row .print-writing {
+        margin-bottom: 0 !important;
+      }
+
+      #daralooPrintCard .print-history-row .print-writing-space {
+        height: 8mm !important;
+      }
+
+      /* ===============================
+         علائم حیاتی
+      =============================== */
+
+      #daralooPrintCard .print-vitals {
+        display: grid !important;
+        grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+        gap: 1mm !important;
+        margin-bottom: 1.5mm !important;
+      }
+
+      #daralooPrintCard .print-vital {
+        border: 1px solid #dce4ed !important;
+        padding: 1mm !important;
+        min-height: 7mm !important;
+        text-align: center !important;
+      }
+
+      #daralooPrintCard .print-vital span {
+        display: block !important;
+        font-size: 6pt !important;
+        color: #718096 !important;
+      }
+
+      #daralooPrintCard .print-vital b {
+        display: block !important;
+        font-size: 7pt !important;
+        margin-top: .3mm !important;
+      }
+
+      /* ===============================
+         جدول ثبت نسخه
+         فضای بیشتر برای نوشتن پزشک
+      =============================== */
+
+      #daralooPrintCard .print-meds {
+        width: 100% !important;
+        border-collapse: collapse !important;
+        table-layout: fixed !important;
+        font-size: 7pt !important;
+        margin-top: 1mm !important;
+      }
+
+      #daralooPrintCard .print-meds th {
+        background: #edf3fa !important;
+        color: #203b65 !important;
+        font-weight: 800 !important;
+        height: 9mm !important;
+        font-size: 7pt !important;
+      }
+
+      #daralooPrintCard .print-meds th,
+      #daralooPrintCard .print-meds td {
+        border: 1px solid #aebdce !important;
+        padding: 1mm !important;
+        text-align: center !important;
+        vertical-align: middle !important;
+        overflow-wrap: anywhere !important;
+      }
+
+      /* ارتفاع ردیف‌های نسخه */
+
+      #daralooPrintCard .print-meds td {
+        height: 14mm !important;
+      }
+
+      /* ===============================
+         محل مهر یا امضای پزشک
+      =============================== */
+
+      #daralooPrintCard .print-signature-area {
+        display: flex !important;
+        justify-content: flex-start !important;
+        align-items: flex-start !important;
+        margin-top: 3mm !important;
+        min-height: 24mm !important;
+        padding: 2mm !important;
+      }
+
+      #daralooPrintCard .print-signature-box {
+        width: 48mm !important;
+        height: 21mm !important;
+        border: 1px dashed #9aaabd !important;
+        border-radius: 1mm !important;
+        display: flex !important;
+        align-items: flex-start !important;
+        justify-content: center !important;
+        padding-top: 2mm !important;
+        font-size: 8pt !important;
+        font-weight: bold !important;
+        color: #52647a !important;
+      }
+
+      /* ===============================
+         پابرگ
+      =============================== */
+
+      #daralooPrintCard .print-footer {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: flex-end !important;
+        border-top: 1px solid #cfd9e5 !important;
+        padding-top: 1.5mm !important;
+        margin-top: 1mm !important;
+        font-size: 6.5pt !important;
+        color: #52647a !important;
+      }
+
+      #daralooPrintCard .print-signature {
+        min-width: 45mm !important;
+        text-align: center !important;
+        line-height: 1.7 !important;
+      }
+
+      #daralooPrintCard .print-small {
+        font-size: 6pt !important;
+        color: #718096 !important;
+      }
+
+    }
+
+  `;
+
+  document.head.appendChild(style);
+}
+
+
+function printText(value){
+
+  if(value===undefined || value===null || String(value).trim()===''){
+    return '—';
+  }
+
+  return String(value);
+}
+
+
+function printDate(value){
+
+  if(!value) return '—';
+
+  const d=new Date(value);
+
+  if(Number.isNaN(d.getTime())){
+    return String(value);
+  }
+
+  return new Intl.DateTimeFormat('fa-IR-u-ca-persian',{
+    timeZone:'Asia/Tehran',
+    year:'numeric',
+    month:'2-digit',
+    day:'2-digit',
+    hour:'2-digit',
+    minute:'2-digit'
+  }).format(d);
+}
+
+
+function createPrintCell(title,value){
+
+  const cell=document.createElement('div');
+  cell.className='print-cell';
+
+  const label=document.createElement('span');
+  label.textContent=title;
+
+  const content=document.createElement('b');
+  content.textContent=printText(value);
+
+  cell.appendChild(label);
+  cell.appendChild(content);
+
+  return cell;
+}
+
+
+function createPrintSection(title){
+
+  const section=document.createElement('div');
+  section.className='print-section';
+
+  const heading=document.createElement('h3');
+  heading.textContent=title;
+
+  section.appendChild(heading);
+
+  return section;
+}
+
+
+function createPrintGrid(){
+
+  const grid=document.createElement('div');
+  grid.className='print-grid';
+
+  return grid;
+}
+
+
+function createWritingArea(title,spaceClass,text){
+
+  const box=document.createElement('div');
+  box.className='print-writing';
+
+  const heading=document.createElement('div');
+  heading.className='print-writing-title';
+  heading.textContent=title;
+
+  const space=document.createElement('div');
+  space.className='print-writing-space '+spaceClass;
+
+  // اگر پزشک متنی وارد کرده باشد، متن روی خطوط کادر چاپ می‌شود
+  if(text && String(text).trim()){
+    space.textContent=String(text).trim();
+    space.style.setProperty('height','auto','important');
+    space.style.setProperty('min-height','10mm','important');
+    space.style.setProperty('white-space','pre-wrap','important');
+    space.style.setProperty('line-height','7mm','important');
+    space.style.setProperty('font-size','9pt','important');
+    space.style.setProperty('padding','0 2mm','important');
+  }
+
+  box.appendChild(heading);
+  box.appendChild(space);
+
+  return box;
+}
+
+
+function buildPrintCard(){
+
+  if(!currentPatient){
+    showResult('error','چاپ ممکن نیست','ابتدا پرونده را ثبت کنید؛ سپس دکمه چاپ نمایش داده می‌شود.');
+    return false;
+  }
+
+  addPrintStyles();
+
+  const p=currentPatient;
+  const doc=currentDoctor();
+
+  let card=document.getElementById('daralooPrintCard');
+
+  if(!card){
+    card=document.createElement('section');
+    card.id='daralooPrintCard';
+    document.body.appendChild(card);
+  }
+
+  card.innerHTML='';
+
+ 
+/* =========================================================
+   سربرگ برگه چاپی + لوگوی سامانه + تصویر مراجعه‌کننده
+========================================================= */
+
+const brand = document.createElement('div');
+brand.className = 'print-brand';
+
+
+/* تصویر مراجعه‌کننده */
+
+const photoBox = document.createElement('div');
+
+if (p.photoFileId || p.photoDataUrl) {
+
+  const photo = document.createElement('img');
+  photo.className = 'print-photo';
+  photo.id = 'daralooPrintPatientPhoto';
+  photo.alt = 'تصویر مراجعه‌کننده';
+
+  photo.src = p.photoDataUrl || (
+    'https://drive.google.com/thumbnail?id=' +
+    encodeURIComponent(p.photoFileId) +
+    '&sz=w400'
+  );
+
+  photo.onerror = () => {
+    photo.style.display = 'none';
+
+    const fallback = document.createElement('div');
+    fallback.className = 'print-photo-empty';
+    fallback.textContent = 'تصویر در دسترس نیست';
+
+    photoBox.appendChild(fallback);
+  };
+
+  photoBox.appendChild(photo);
+
+} else {
+
+  const empty = document.createElement('div');
+  empty.className = 'print-photo-empty';
+  empty.textContent = 'بدون تصویر';
+
+  photoBox.appendChild(empty);
+}
+
+
+/* اطلاعات هویتی سامانه */
+
+const brandInfo = document.createElement('div');
+brandInfo.className = 'print-brand-info';
+
+
+/* لوگوی سامانه */
+
+const logo = document.createElement('img');
+logo.className = 'print-logo';
+logo.src = 'images/logo.png';
+logo.alt = 'لوگوی سامانه مأموریت پزشکی درآلو';
+
+logo.onerror = () => {
+  logo.style.display = 'none';
+};
+
+
+/* عنوان انگلیسی */
+
+const brandTitle = document.createElement('h1');
+brandTitle.textContent = 'DARALOO INTEGRATED COMMUNITY HEALTHCARE SYSTEM';
+
+
+/* عنوان فارسی */
+
+const brandSubtitle = document.createElement('p');
+brandSubtitle.textContent = 'سامانه یکپارچه سلامت جهادی مجتمع مس درآلوو';
+
+
+/* ساختار اطلاعات سربرگ */
+
+brandInfo.appendChild(logo);
+brandInfo.appendChild(brandTitle);
+brandInfo.appendChild(brandSubtitle);
+
+
+/* مهر شماره نوبت */
+
+const stamp = document.createElement('div');
+stamp.className = 'queue-stamp';
+
+
+const label = document.createElement('span');
+label.className = 'queue-label';
+label.textContent = 'شماره نوبت';
+
+
+const number = document.createElement('span');
+number.className = 'queue-number';
+number.textContent =
+  (currentVisit.queueNumber || currentPatient.queueNumber) || '—';
+
+
+const serviceLine = document.createElement('span');
+serviceLine.className = 'queue-service';
+serviceLine.textContent =
+  currentVisit.service ||
+  doc.service ||
+  p.service ||
+  'خدمت پزشکی';
+
+
+const deadlineLine = document.createElement('span');
+deadlineLine.className = 'queue-deadline';
+
+const deadlineValue =
+  currentVisit.visitEndAt ||
+  currentVisit.visitAt ||
+  '';
+
+deadlineLine.textContent = deadlineValue
+  ? (
+      'مهلت مراجعه تا ساعت ' +
+      new Date(deadlineValue).toLocaleTimeString('fa-IR', {
+        timeZone: 'Asia/Tehran',
+        hour: '2-digit',
+        minute: '2-digit'
+      })
+    )
+  : (
+      'زمان مراجعه: ' +
+      (currentVisit.visitAt
+        ? printDate(currentVisit.visitAt)
+        : 'در انتظار تعیین')
+    );
+
+
+stamp.append(
+  label,
+  number,
+  serviceLine,
+  deadlineLine
+);
+
+
+/* چیدمان نهایی سربرگ */
+
+brand.appendChild(photoBox);
+brand.appendChild(brandInfo);
+brand.appendChild(stamp);
+
+card.appendChild(brand);
+
+  /* عنوان */
+
+  const title=document.createElement('div');
+  title.className='print-title';
+  title.textContent='فرم مراجعه، معاینه و ثبت نسخه پزشکی';
+
+  card.appendChild(title);
+
+
+  /* مشخصات بیمار */
+
+  const patientSection=createPrintSection(
+    '۱. مشخصات مراجعه‌کننده'
+  );
+
+  const patientGrid=createPrintGrid();
+
+ [
+  ['شماره نوبت',p.queueNumber],
+  ['نام و نام خانوادگی',((p.firstName||'')+' '+(p.lastName||'')).trim()],
+  ['کد ملی',p.nationalCode],
+  ['شناسه پرونده',p.patientId],
+  ['شماره پرونده مراجعه',p.caseNumber>1?('پرونده شماره '+p.caseNumber):'پرونده اول'],
+  ['علت رد پرونده قبلی',p.previousRejectionReason||'—'],
+  ['نام پدر',p.fatherName],
+  ['شماره تماس',p.mobile],
+  ['سن',p.age],
+  ['جنسیت',p.gender],
+  ['محل سکونت',p.residence]
+].forEach(([label,value])=>{
+  patientGrid.appendChild(createPrintCell(label,value));
+});
+
+  patientSection.appendChild(patientGrid);
+  card.appendChild(patientSection);
+
+
+  /* اطلاعات ثبت مراجعه */
+
+  const visitSection=createPrintSection(
+    '۲. اطلاعات ثبت مراجعه'
+  );
+
+  const visitGrid=createPrintGrid();
+
+  [
+    ['زمان تخمینی مراجعه',printDate(currentVisit.visitAt)],
+    ['شماره نوبت خدمت',currentVisit.queueNumber||p.queueNumber],
+    ['مدت انتظار تخمینی', (currentVisit.waitingMinutes||0)+' دقیقه'],
+    ['مدت ویزیت پزشک', (currentVisit.visitDuration||15)+' دقیقه'],
+    ['خدمت پزشکی',currentVisit.service||doc.service||p.service],
+    ['نام پزشک مسئول',doc.name],
+    ['شناسه برگه', currentVisit.visitId],
+    ['اپراتور ثبت‌کننده',currentVisit.operatorName]
+  ].forEach(([label,value])=>{
+    visitGrid.appendChild(createPrintCell(label,value));
+  });
+
+  visitSection.appendChild(visitGrid);
+  card.appendChild(visitSection);
+
+
+  /* شرح مراجعه و محل انجام ویزیت - خالی برای پزشک */
+
+  const descriptionSection=createPrintSection(
+    '۳. شرح مراجعه / محل انجام ویزیت'
+  );
+
+  descriptionSection.appendChild(
+    createWritingArea(
+      'شرح مراجعه، محل انجام ویزیت و توضیحات اولیه:',
+      'space-description',
+      currentVisit.location ? 'محل مراجعه / ویزیت: '+currentVisit.location : ''
+    )
+  );
+
+  card.appendChild(descriptionSection);
+
+
+  /* معاینه پزشک */
+
+  const examinationSection=createPrintSection(
+    '۴. اطلاعات علائم حیاتی اولیه'
+  );
+
+  const vitals=document.createElement('div');
+  vitals.className='print-vitals';
+
+  [
+    ['فشار خون',''],
+    ['دما',''],
+    ['نبض',''],
+    ['نرخ تنفس','']
+  ].forEach(([label,value])=>{
+
+    const item=document.createElement('div');
+    item.className='print-vital';
+
+    const name=document.createElement('span');
+    name.textContent=label;
+
+    const val=document.createElement('b');
+    val.textContent=printText(value);
+
+    item.appendChild(name);
+    item.appendChild(val);
+
+    vitals.appendChild(item);
+  });
+
+  examinationSection.appendChild(vitals);
+
+  examinationSection.appendChild(
+    createWritingArea(
+      'تشخیص پزشک:',
+      'space-diagnosis',
+      ''
+    )
+  );
+
+  examinationSection.appendChild(
+    createWritingArea(
+      'سابقه بیماری قبلی:',
+      'space-treatment',
+      ''
+    )
+  );
+
+  examinationSection.appendChild(
+    createWritingArea(
+      'سابقه دارویی و آلرژی:',
+      'space-notes',
+      ''
+    )
+  );
+
+  card.appendChild(examinationSection);
+
+
+  /* نسخه و داروها - ردیف‌های خالی */
+
+  const medicineSection=createPrintSection(
+    '۵. ثبت نسخه و داروها'
+  );
+
+  const table=document.createElement('table');
+  table.className='print-meds';
+
+  const headers=[
+    'ردیف',
+    'نام دارو',
+    'دوز / مقدار',
+    'نحوه و دفعات مصرف',
+    'مدت / تعداد',
+    'دستور تکمیلی'
+  ];
+
+  const thead=document.createElement('thead');
+  const headerRow=document.createElement('tr');
+
+  headers.forEach(text=>{
+
+    const th=document.createElement('th');
+    th.textContent=text;
+
+    headerRow.appendChild(th);
+  });
+
+  thead.appendChild(headerRow);
+  table.appendChild(thead);
+
+  const tbody=document.createElement('tbody');
+
+  const meds=[];
+  const rowCount=Math.max(5,meds.length);
+
+  for(let i=1;i<=rowCount;i++){
+
+    const m=meds[i-1]||{};
+
+    const join=(a,b,sep)=>[a,b].map(x=>String(x||'').trim()).filter(Boolean).join(sep);
+
+    const tr=document.createElement('tr');
+
+    [
+      i,
+      m.name||'',
+      m.dosage||'',
+      join(m.route,m.frequency,' – '),
+      join(m.duration,m.quantity,' / '),
+      m.instructions||''
+    ].forEach(value=>{
+
+      const td=document.createElement('td');
+      td.textContent=value;
+
+      tr.appendChild(td);
+    });
+
+    tbody.appendChild(tr);
+  }
+
+  table.appendChild(tbody);
+  medicineSection.appendChild(table);
+
+  card.appendChild(medicineSection);
+
+
+  /* امضا و مهر */
+
+  const footer=document.createElement('div');
+  footer.className='print-footer';
+
+  const footerInfo=document.createElement('div');
+  footerInfo.className='print-small';
+  footerInfo.textContent=
+    'فرم فیزیکی جهت تکمیل توسط پزشک مسئول';
+
+  const signature=document.createElement('div');
+  signature.className='print-signature';
+  signature.textContent=
+    'نام و امضای پزشک: ............................';
+
+  const stampArea=document.createElement('div');
+  stampArea.className='print-signature';
+  stampArea.textContent=
+    'مهر پزشک: ............................';
+
+  footer.appendChild(footerInfo);
+  footer.appendChild(signature);
+  footer.appendChild(stampArea);
+
+  card.appendChild(footer);
+
+  return true;
+}
+
+async function printVisitCard(){
+
+  if(!buildPrintCard()) return;
+
+  const p=currentPatient;
+
+  // ساخت نام فایل از نام و نام خانوادگی و کد ملی
+  const patientName=[
+    p.firstName,
+    p.lastName
+  ].filter(Boolean).join(' ').trim();
+
+  const nationalCode=String(p.nationalCode||'').trim();
+
+  const fileName=[
+    patientName || 'مراجع',
+    nationalCode || 'بدون کد ملی'
+  ].join(' - ').replace(/[\\/:*?"<>|]/g,'-');
+
+  // ذخیره عنوان فعلی صفحه
+  const oldTitle=document.title;
+
+  // عنوان جدید برای نام فایل PDF
+  document.title=fileName;
+
+  const img=document.getElementById('daralooPrintPatientPhoto');
+
+  if(img && img.getAttribute('src')){
+
+    if(!img.complete){
+
+      await Promise.race([
+        new Promise(resolve=>{
+          img.addEventListener('load',resolve,{once:true});
+        }),
+        new Promise(resolve=>{
+          img.addEventListener('error',resolve,{once:true});
+        }),
+        new Promise(resolve=>setTimeout(resolve,4000))
+      ]);
+
+    }
+  }
+
+  requestAnimationFrame(()=>{
+
+    setTimeout(()=>{
+
+      window.print();
+
+      // بازگرداندن عنوان قبلی پس از پایان چاپ
+      window.addEventListener('afterprint',function restoreTitle(){
+        document.title=oldTitle;
+        window.removeEventListener('afterprint',restoreTitle);
+      },{once:true});
+
+    },150);
+
+  });
+}
+
+
+function rememberForPrint(data,answer){
+  const doctor={code:answer.doctorCode||'',name:answer.doctorName||'',service:answer.service||data.service};
+  const isImage=data.fileData && /^data:image\//i.test(data.fileData);
+  currentPatient={
+    firstName:data.firstName,lastName:data.lastName,fatherName:data.fatherName,
+    age:data.age,gender:data.gender,mobile:data.mobile,nationalCode:data.nationalCode,
+    residence:data.residence==='سایر'?(data.residenceOther||'سایر'):data.residence,
+    service:data.service==='سایر'?(data.serviceOther||'سایر'):data.service,
+    queueNumber:answer.queueNumber||'',patientId:answer.patientId||'',
+    caseNumber:answer.caseNumber||1,previousRejectionReason:answer.previousRejectionReason||'',
+    photoDataUrl:isImage?data.fileData:'',photoFileId:answer.fileId||''
+  };
+  currentVisit={
+    visitAt:answer.visitAt||'',location:data.visitLocation,visitId:answer.visitId||'',
+    operatorCode:data.operatorCode,
+    operatorName:answer.operatorName||data.operatorName||'',
+    service:answer.service||data.service,
+    visitEndAt:answer.visitEndAt||'',
+    doctorCode:answer.doctorCode||'',
+    doctorName:answer.doctorName||'',
+    doctorService:answer.service||data.service,
+    queueNumber:answer.queueNumber||'', waitingMinutes:answer.waitingMinutes||0, visitDuration:answer.visitDuration||15
+  };
+}
+
+function addPrintButton(){
+  const btn=document.createElement('button');
+  btn.type='button'; btn.className='btn btn-primary'; btn.style.marginTop='10px';
+  btn.innerHTML='چاپ برگه مراجعه (A4) <span>⎙</span>';
+  btn.addEventListener('click',()=>printVisitCard());
+  resultBox.appendChild(btn);
+}
+
+/* ---------- نوبت خودکار و محل مراجعه ---------- */
+let manualLocation=false;
+function fillVisitConfig(data){
+  fillSelect($('#locationSelect'),data.visitLocations||[],'انتخاب محل مراجعه');
+  if(!(data.visitLocations||[]).length) setManualLocation(true);
+}
+function setManualLocation(on){
+  manualLocation=on; $('#locationManual').classList.toggle('hidden',!on); $('#locationSelect').classList.toggle('hidden',on);
+  $('#toggleLocation').textContent=on?'بازگشت به انتخاب از فهرست':'＋ ثبت محل جدید به‌صورت دستی';
+}
+function resetVisitUi(){
+  if($('#locationSelect').options.length>1) setManualLocation(false);
+  $('#visitAtDisplay').value=''; $('#doctorDisplay').value=''; $('#waitingDisplay').value=''; $('#durationDisplay').value='';
+}
+function collectVisit(){
+  const location=(manualLocation?$('#locationManual').value:$('#locationSelect').value).trim();
+  if(!location) throw new Error('محل مراجعه / ویزیت را وارد کنید.');
+  return {visitLocation:location};
+}
+$('#toggleLocation').addEventListener('click',()=>setManualLocation(!manualLocation));
+
+/* ---------- استعلام سابقه مراجعه با کد ملی ---------- */
+let lookedUpCode='';
+let secondCaseContext=null;
+function lockForm(){
+  form.classList.add('hidden');
+  form.elements.nationalCode.readOnly=false;
+  lookedUpCode='';
+  secondCaseContext=null;
+}
+function unlockForm(code, context){
+  form.classList.remove('hidden');
+  form.elements.nationalCode.value=code;
+  form.elements.nationalCode.readOnly=true;
+  lookedUpCode=code;
+  secondCaseContext=context||null;
+  resetVisitUi();
+  if(secondCaseContext){
+    form.elements.nationalCode.value=code;
+    const note=document.createElement('div');
+    note.className='lk-banner found';
+    note.textContent='این مراجعه پرونده شماره '+(secondCaseContext.nextCaseNumber||2)+' است. علت رد پرونده قبلی: '+(secondCaseContext.rejectionReason||'ثبت نشده');
+    form.prepend(note);
+  }
+}
+function renderLookup(r){
+  const box=$('#lookupResult'); box.textContent='';
+  const banner=document.createElement('div');
+  if(!r.exists){
+    banner.className='lk-banner ok'; banner.textContent=r.message; box.appendChild(banner); return;
+  }
+  banner.className='lk-banner found'; banner.textContent=r.message; box.appendChild(banner);
+  const top=document.createElement('div'); top.className='lk-top';
+  const info=document.createElement('div'); info.className='lk-info';
+  const p=r.patient||{};
+  const photo=document.createElement('div'); photo.className='lk-photo';
+  if(p.photoFileId){
+    const img=document.createElement('img'); img.alt='تصویر مراجعه‌کننده';
+    img.src='https://drive.google.com/thumbnail?id='+encodeURIComponent(p.photoFileId)+'&sz=w400';
+    img.onerror=()=>{ img.remove(); photo.textContent='تصویر در دسترس نیست'; };
+    photo.appendChild(img);
+  }else{ photo.textContent='بدون تصویر'; }
+  [['نام و نام خانوادگی',p.fullName],['شناسه پرونده',p.patientId],['تاریخ تشکیل پرونده',p.registeredAt],
+   ['وضعیت پرونده',p.status],['شماره نوبت',p.queueNumber],['اپراتور ثبت‌کننده',p.operatorName]].forEach(([k,v])=>{
+    const d=document.createElement('div'); const s=document.createElement('span'); s.textContent=k;
+    const b=document.createElement('b'); b.textContent=v||'—'; d.append(s,b); info.appendChild(d);
+  });
+  top.append(photo,info);
+  box.appendChild(top);
+  const steps=document.createElement('div'); steps.className='lk-steps';
+  (r.steps||[]).forEach((st,i)=>{
+    const d=document.createElement('div'); d.className='lk-step'+(st.done?' done':'');
+    const ic=document.createElement('i'); ic.textContent=st.done?'✓':String(i+1);
+    const t=document.createElement('b'); t.textContent=st.title;
+    const sm=document.createElement('small'); sm.textContent=st.detail||'';
+    d.append(ic,t,sm); steps.appendChild(d);
+  });
+  box.appendChild(steps);
+  const stage=document.createElement('div'); stage.className='lk-stage';
+  stage.textContent='مرحله فعلی: '+(r.stageText||'');
+  box.appendChild(stage);
+  if(r.secondCaseAllowed){
+    const rejected=document.createElement('div');
+    rejected.className='lk-banner found';
+    rejected.style.marginTop='12px';
+    rejected.textContent='وضعیت ویزیت: '+(r.rejectedVisitStatus||'تأیید نشد')+' | علت رد پزشک: '+(r.rejectionReason||'علتی در ستون AC ثبت نشده است.')+' | مجوز تشکیل پرونده شماره '+(r.nextCaseNumber||2)+' صادر شده است.';
+    box.appendChild(rejected);
+  }
+  if(r.lastVisit){
+    const lv=document.createElement('div'); lv.className='hint';
+    lv.textContent='آخرین برگه ویزیت: '+[r.lastVisit.visitAt,r.lastVisit.service,r.lastVisit.doctorName?('دکتر/پزشک: '+r.lastVisit.doctorName):'',r.lastVisit.completed?'ویزیت تکمیل‌شده':'در انتظار ویزیت'].filter(Boolean).join(' · ');
+    box.appendChild(lv);
+  }
+  const actions=document.createElement('div'); actions.className='lk-actions';
+  const pb=document.createElement('button'); pb.type='button'; pb.className='btn btn-primary';
+  pb.innerHTML='چاپ مجدد برگه مراجعه (A4) <span>⎙</span>';
+  pb.addEventListener('click', async ()=>{
+    if(pb.disabled) return;
+    pb.disabled=true;
+    const oldText=pb.textContent;
+    pb.textContent='در حال آماده‌سازی برگه چاپ...';
+    try{
+      await reprintFromLookup(r);
+    }catch(err){
+      const error=document.createElement('div');
+      error.className='lk-banner err';
+      error.textContent='چاپ مجدد انجام نشد: '+(err && err.message ? err.message : 'خطای نامشخص');
+      box.appendChild(error);
+    }finally{
+      pb.disabled=false;
+      pb.innerHTML='چاپ مجدد برگه مراجعه (A4) <span>⎙</span>';
+    }
+  });
+  actions.appendChild(pb);
+  if(r.secondCaseAllowed){
+    const newCaseBtn=document.createElement('button');
+    newCaseBtn.type='button'; newCaseBtn.className='btn btn-primary';
+    newCaseBtn.style.marginInlineStart='8px';
+    newCaseBtn.textContent='تشکیل پرونده شماره '+(r.nextCaseNumber||2);
+    newCaseBtn.addEventListener('click',()=>{
+      unlockForm(r.nationalCode||$('#lookupCode').value,{nextCaseNumber:r.nextCaseNumber||2,rejectionReason:r.rejectionReason||'',previousPatientId:(r.patient||{}).patientId||''});
+      form.scrollIntoView({behavior:'smooth',block:'start'});
+    });
+    actions.appendChild(newCaseBtn);
+  }
+  box.appendChild(actions);
+}
+
+function reprintFromLookup(r){
+  const p=r.patient||{}; const v=r.lastVisit||{};
+  currentPatient={
+    firstName:p.firstName,lastName:p.lastName,fatherName:p.fatherName,age:p.age,gender:p.gender,
+    mobile:p.mobile,nationalCode:p.nationalCode,residence:p.residence,service:p.service,
+    queueNumber:p.queueNumber,patientId:p.patientId,caseNumber:p.caseNumber||1,previousRejectionReason:r.rejectionReason||p.previousRejectionReason||'',photoDataUrl:'',photoFileId:p.photoFileId
+  };
+  currentVisit={
+    visitAt:v.visitAt||'',visitEndAt:v.visitEndAt||'',location:v.location||'',visitId:v.visitId||'',
+    operatorCode:v.operatorCode||'',operatorName:v.operatorName||p.operatorName||'',
+    service:v.service||p.service||'',doctorCode:v.doctorCode||'',doctorName:v.doctorName||'',
+    doctorService:v.service||'',queueNumber:v.queueNumber||p.queueNumber||'',
+    waitingMinutes:v.waitingMinutes||0,visitDuration:v.visitDuration||15
+  };
+  return printVisitCard();
+}
+async function runLookup(){
+  const code=normalizeDigits($('#lookupCode').value).replace(/\D/g,'');
+  $('#lookupCode').value=code;
+  const box=$('#lookupResult');
+  if(!/^\d{10}$/.test(code)){
+    lockForm(); box.textContent='';
+    const b=document.createElement('div'); b.className='lk-banner err'; b.textContent='کد ملی باید دقیقاً ۱۰ رقم باشد.'; box.appendChild(b); return;
+  }
+  if(!API_URL || API_URL.includes('PASTE_YOUR')){
+    const b=document.createElement('div'); b.className='lk-banner err'; b.textContent='ابتدا نشانی Web App را در متغیر API_URL وارد کنید.'; box.textContent=''; box.appendChild(b); return;
+  }
+  const btn=$('#lookupBtn'); btn.disabled=true; btn.textContent='در حال استعلام...';
+  try{
+    const r=await jsonp(API_URL,15000,{action:'checkPatient',nationalCode:code});
+    if(!r||!r.success) throw new Error((r&&r.message)||'استعلام انجام نشد.');
+    renderLookup(r);
+    if(r.exists) lockForm(); else unlockForm(code);
+  }catch(err){
+    lockForm(); box.textContent='';
+    const b=document.createElement('div'); b.className='lk-banner err';
+    b.textContent=(err.message||'خطا در استعلام')+' (اگر تازه کد Apps Script را تغییر داده‌اید، Web App را دوباره Deploy کنید.)';
+    box.appendChild(b);
+  }finally{ btn.disabled=false; btn.innerHTML='استعلام <span>⌕</span>'; }
+}
+function resetLookup(){ lockForm(); const note=form.querySelector(':scope > .lk-banner'); if(note) note.remove(); $('#lookupCode').value=''; $('#lookupResult').textContent=''; }
+$('#lookupBtn').addEventListener('click',runLookup);
+$('#lookupCode').addEventListener('keydown',e=>{ if(e.key==='Enter'){e.preventDefault();runLookup();} });
+$('#lookupCode').addEventListener('input',()=>{
+  const c=normalizeDigits($('#lookupCode').value).replace(/\D/g,'');
+  if(c!==lookedUpCode){ lockForm(); $('#lookupResult').textContent=''; }
+});
+
+setNewRequestId(); loadConfig();
+</script>
+</body>
+</html>
